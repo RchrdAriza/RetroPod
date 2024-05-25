@@ -30,18 +30,27 @@ class BodyApp extends StatelessWidget {
         width: double.infinity,
         child: Container(
           color: const Color.fromRGBO(119, 119, 119, 1),
-          child: const Column(
+          child: Column(
             children: [
               Expanded(
-                  flex: 5,
+                  flex: 4,
                   child: SizedBox(
                     height: double.infinity,
                     width: double.infinity,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 1,
               ),
-              Expanded(
+              const Expanded(
                   flex: 4,
                   child: SizedBox(
                     height: double.infinity,
@@ -126,7 +135,7 @@ class ButtonWheel extends StatelessWidget {
           Container(
             height: 100,
             width: 100,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.white38,
             ),
