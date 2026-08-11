@@ -12,4 +12,7 @@ class Assets {
 
   // skins
   static const String clearTechSkin = 'assets/skins/clear_tech.jpeg';
+  static const String clearTechCaseSkin = 'assets/skins/clear_tech_case.png';
+  static const String clearTechPurpleCaseSkin =
+      'assets/skins/clear_tech_purple_case.jpeg';
 }

@@ -12,6 +12,7 @@ import 'package:classipod/features/settings/models/app_theme.dart';
 import 'package:classipod/features/settings/models/click_wheel_sensitivity.dart';
 import 'package:classipod/features/settings/models/click_wheel_size.dart';
 import 'package:classipod/features/settings/models/device_color.dart';
+import 'package:classipod/features/settings/models/device_skin.dart';
 import 'package:classipod/features/settings/models/repeat_mode.dart';
 import 'package:classipod/features/settings/models/settings_preferences_model.dart';
 import 'package:classipod/features/settings/models/volume_mode.dart';
@@ -65,6 +66,9 @@ class SettingsPreferencesControllerNotifier
       splitScreenEnabled: settingsPreferencesRepository.getSplitScreenEnabled(),
       immersiveMode: settingsPreferencesRepository.getImmersiveMode(),
       appTheme: AppTheme.fromName(settingsPreferencesRepository.getAppTheme()),
+      deviceSkin: DeviceSkin.fromName(
+        settingsPreferencesRepository.getDeviceSkin(),
+      ),
     );
   }
 
@@ -137,6 +141,14 @@ class SettingsPreferencesControllerNotifier
     await ref
         .read(settingsPreferencesRepositoryProvider)
         .setDeviceColor(deviceColorName: deviceColor.name);
+  }
+
+  Future<void> setSkin(DeviceSkin skin) async {
+    if (state.deviceSkin == skin) return;
+    state = state.copyWith(deviceSkin: skin);
+    await ref
+        .read(settingsPreferencesRepositoryProvider)
+        .setDeviceSkin(deviceSkinName: skin.name);
   }
 
   Future<void> toggleClickWheelSize() async {
@@ -344,6 +356,9 @@ class SettingsPreferencesControllerNotifier
     await ref
         .read(settingsPreferencesRepositoryProvider)
         .setAppTheme(appThemeName: AppTheme.light.name);
+    await ref
+        .read(settingsPreferencesRepositoryProvider)
+        .setDeviceSkin(deviceSkinName: DeviceSkin.classic.name);
     ref.invalidateSelf();
   }
 

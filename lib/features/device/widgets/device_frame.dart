@@ -1,78 +1,70 @@
 import 'package:classipod/core/constants/assets.dart';
 import 'package:classipod/core/constants/keys.dart';
+import 'package:classipod/core/extensions/build_context_extensions.dart';
 import 'package:classipod/features/device/widgets/device_controls.dart';
 import 'package:classipod/features/device/widgets/device_screen.dart';
-
+import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
+import 'package:classipod/features/settings/models/device_color.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DeviceFrame extends StatelessWidget {
+class DeviceFrame extends ConsumerWidget {
   final Widget child;
 
   const DeviceFrame({super.key, required this.child});
 
   @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final skin = ref.watch(
+      settingsPreferencesControllerProvider.select((e) => e.deviceSkin),
+    );
 
-    return DecoratedBox(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(Assets.clearTechSkin),
-          fit: BoxFit.cover,
+    final Widget background;
+    if (skin.assetPath == null) {
+      // Use the classic solid or gradient design based on active DeviceColor
+      final DeviceColor deviceColor = ref.watch(
+        settingsPreferencesControllerProvider.select((e) => e.deviceColor),
+      );
+      final deviceColorStyle = deviceColor.style;
+      final solidFrameColor = deviceColorStyle.solidFrameColor;
+
+      background = DecoratedBox(
+        decoration: BoxDecoration(
+          color: solidFrameColor,
+          image: solidFrameColor == null
+              ? DecorationImage(
+                  image: const AssetImage(Assets.noiseImage),
+                  fit: BoxFit.cover,
+                  opacity: deviceColorStyle.noiseOpacity,
+                )
+              : null,
+          gradient: solidFrameColor == null
+              ? LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: deviceColorStyle.frameGradientColors,
+                )
+              : null,
         ),
-      ),
+        child: const SizedBox.expand(),
+      );
+    } else {
+      // Use the image skin (stretched to fit using BoxFit.fill or specified fit)
+      background = Image.asset(
+        skin.assetPath!,
+        fit: skin.fit,
+      );
+    }
+
+    return ColoredBox(
+      color: context.appBackgroundColor,
       child: Stack(
         fit: StackFit.expand,
-        clipBehavior: Clip.none,
         children: [
-          Positioned(
-            top: 0,
-            child: SizedBox(
-              height: 20,
-              width: size.width,
-              child: const DecoratedBox(
-                decoration: BoxDecoration(
-                  boxShadow: [BoxShadow(blurRadius: 100, spreadRadius: 1)],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            child: SizedBox(
-              height: 20,
-              width: size.width,
-              child: const DecoratedBox(
-                decoration: BoxDecoration(
-                  boxShadow: [BoxShadow(blurRadius: 100, spreadRadius: 1)],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 0,
-            child: SizedBox(
-              height: size.height,
-              width: 20,
-              child: const DecoratedBox(
-                decoration: BoxDecoration(
-                  boxShadow: [BoxShadow(blurRadius: 100, spreadRadius: 1)],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            right: 0,
-            child: SizedBox(
-              height: size.height,
-              width: 20,
-              child: const DecoratedBox(
-                decoration: BoxDecoration(
-                  boxShadow: [BoxShadow(blurRadius: 100, spreadRadius: 1)],
-                ),
-              ),
-            ),
-          ),
+          // ── Background layout (Classic gradient or active tech skin) ──────
+          background,
+
+          // ── UI content centred over the skin ──────────────────────────────
           SafeArea(
             minimum: const EdgeInsets.fromLTRB(20, 30, 20, 20),
             child: Center(

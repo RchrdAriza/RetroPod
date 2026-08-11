@@ -7,6 +7,7 @@ enum SplitScreenType {
   language,
   appTheme,
   deviceColor,
+  deviceSkin,
   clickWheelSize,
   clickWheelSensitivity,
   touchScreen,

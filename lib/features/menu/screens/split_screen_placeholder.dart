@@ -119,6 +119,12 @@ class _SplitScreenPlaceholderState extends ConsumerState<SplitScreenPlaceholder>
           icon: CupertinoIcons.device_phone_portrait,
           contentText: currentSettings.deviceColor.title(context),
         );
+      } else if (splitScreenType == SplitScreenType.deviceSkin) {
+        splitScreenWidget = IconPreviewWidget(
+          titleText: 'Skins',
+          icon: CupertinoIcons.paintbrush,
+          contentText: currentSettings.deviceSkin.title(context),
+        );
       } else if (splitScreenType == SplitScreenType.clickWheelSize) {
         splitScreenWidget = IconPreviewWidget(
           titleText: context.localization.clickWheelSizeSettingTitle,

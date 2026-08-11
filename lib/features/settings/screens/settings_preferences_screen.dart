@@ -24,6 +24,7 @@ enum _SettingsDisplayItems {
   language,
   appTheme,
   deviceColor,
+  deviceSkin,
   clickWheelSize,
   clickWheelSensitivity,
   isTouchScreenEnabled,
@@ -54,6 +55,8 @@ enum _SettingsDisplayItems {
         return context.localization.touchScreenSettingTitle;
       case deviceColor:
         return context.localization.deviceColorSettingTitle;
+      case deviceSkin:
+        return 'Skins';
       case clickWheelSize:
         return context.localization.clickWheelSizeSettingTitle;
       case clickWheelSensitivity:
@@ -125,6 +128,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
         break;
       case _SettingsDisplayItems.deviceColor:
         context.goNamed(Routes.deviceColor.name);
+        break;
+      case _SettingsDisplayItems.deviceSkin:
+        context.goNamed(Routes.deviceSkin.name);
         break;
       case _SettingsDisplayItems.clickWheelSize:
         await ref
@@ -222,6 +228,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
     switch (settingsItem) {
       case _SettingsDisplayItems.deviceColor:
         return settingsState.deviceColor.title(context);
+      case _SettingsDisplayItems.deviceSkin:
+        return settingsState.deviceSkin.title(context);
       case _SettingsDisplayItems.clickWheelSize:
         return settingsState.clickWheelSize.title(context);
       case _SettingsDisplayItems.clickWheelSensitivity:
@@ -256,6 +264,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
       case _SettingsDisplayItems.deviceColor:
         ref.read(splitScreenControllerProvider.notifier).changeSplitScreenType =
             SplitScreenType.deviceColor;
+        break;
+      case _SettingsDisplayItems.deviceSkin:
+        ref.read(splitScreenControllerProvider.notifier).changeSplitScreenType =
+            SplitScreenType.deviceSkin;
         break;
       case _SettingsDisplayItems.appTheme:
         ref.read(splitScreenControllerProvider.notifier).changeSplitScreenType =
