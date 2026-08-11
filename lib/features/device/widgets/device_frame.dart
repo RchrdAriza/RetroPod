@@ -2,42 +2,24 @@ import 'package:classipod/core/constants/assets.dart';
 import 'package:classipod/core/constants/keys.dart';
 import 'package:classipod/features/device/widgets/device_controls.dart';
 import 'package:classipod/features/device/widgets/device_screen.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
-import 'package:classipod/features/settings/models/device_color.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DeviceFrame extends ConsumerWidget {
+import 'package:flutter/cupertino.dart';
+
+class DeviceFrame extends StatelessWidget {
   final Widget child;
 
   const DeviceFrame({super.key, required this.child});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    final DeviceColor deviceColor = ref.watch(
-      settingsPreferencesControllerProvider.select((e) => e.deviceColor),
-    );
-    final deviceColorStyle = deviceColor.style;
-    final solidFrameColor = deviceColorStyle.solidFrameColor;
 
     return DecoratedBox(
-      decoration: BoxDecoration(
-        color: solidFrameColor,
-        image: solidFrameColor == null
-            ? DecorationImage(
-                image: const AssetImage(Assets.noiseImage),
-                fit: BoxFit.cover,
-                opacity: deviceColorStyle.noiseOpacity,
-              )
-            : null,
-        gradient: solidFrameColor == null
-            ? LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: deviceColorStyle.frameGradientColors,
-              )
-            : null,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(Assets.clearTechSkin),
+          fit: BoxFit.cover,
+        ),
       ),
       child: Stack(
         fit: StackFit.expand,
