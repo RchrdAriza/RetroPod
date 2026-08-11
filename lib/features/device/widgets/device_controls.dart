@@ -14,7 +14,6 @@ import 'package:classipod/features/settings/controller/settings_preferences_cont
 import 'package:classipod/features/settings/models/click_wheel_sensitivity.dart';
 import 'package:classipod/features/settings/models/click_wheel_size.dart';
 import 'package:classipod/features/settings/models/device_color.dart';
-import 'package:classipod/features/settings/models/device_skin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -110,26 +109,11 @@ class _DeviceControlsState extends ConsumerState<DeviceControls> {
       ),
     );
     final deviceColorStyle = deviceColor.style;
-    final deviceSkin = ref.watch(
-      settingsPreferencesControllerProvider.select(
-        (settings) => settings.deviceSkin,
-      ),
-    );
 
-    final isTransparent = deviceSkin.assetPath != null;
-    final Color controlBackgroundColor = isTransparent
-        ? const Color(0x00000000)
-        : deviceColorStyle.controlBackgroundColor;
-    final Color buttonAccentColor = isTransparent
-        ? (deviceSkin == DeviceSkin.clearTechPurpleCase
-            ? const Color(0xFF6A1B9A)
-            : const Color(0xFF2D3A2E))
-        : deviceColorStyle.buttonAccentColor;
-    final Color buttonIconColor = isTransparent
-        ? (deviceSkin == DeviceSkin.clearTechPurpleCase
-            ? const Color(0xFF6A1B9A)
-            : const Color(0xFF2D3A2E))
-        : deviceColorStyle.buttonIconColor;
+    final Color controlBackgroundColor =
+        deviceColorStyle.controlBackgroundColor;
+    final Color buttonAccentColor = deviceColorStyle.buttonAccentColor;
+    final Color buttonIconColor = deviceColorStyle.buttonIconColor;
     final clickWheelSize = ref.watch(
       settingsPreferencesControllerProvider.select(
         (settings) => settings.clickWheelSize,
@@ -201,40 +185,10 @@ class _DeviceControlsState extends ConsumerState<DeviceControls> {
             height: screenWidth * clickWheelRadiusRatio,
             width: screenWidth * clickWheelRadiusRatio,
             padding: const EdgeInsets.all(12),
-            decoration: isTransparent
-                ? BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: RadialGradient(
-                      center: const Alignment(-0.35, -0.45),
-                      radius: 0.92,
-                      colors: [
-                        const Color(0xFFFFFFFF).withValues(alpha: 0.55),
-                        const Color(0xFFE0F0FF).withValues(alpha: 0.22),
-                        const Color(0xFFFFFFFF).withValues(alpha: 0.10),
-                      ],
-                      stops: const [0.0, 0.55, 1.0],
-                    ),
-                    border: Border.all(
-                      color: const Color(0xFFFFFFFF).withValues(alpha: 0.70),
-                      width: 2.5,
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0xFFFFFFFF).withValues(alpha: 0.60),
-                        blurRadius: 8,
-                        spreadRadius: 1,
-                      ),
-                      BoxShadow(
-                        color: const Color(0xFF000000).withValues(alpha: 0.18),
-                        blurRadius: 12,
-                        offset: const Offset(0, 4),
-                      ),
-                    ],
-                  )
-                : BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: controlBackgroundColor,
-                  ),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: controlBackgroundColor,
+            ),
             clipBehavior: Clip.hardEdge,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -278,14 +232,6 @@ class _DeviceControlsState extends ConsumerState<DeviceControls> {
                             color: buttonAccentColor,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            shadows: isTransparent
-                                ? const [
-                                    Shadow(
-                                      color: Color(0x66FFFFFF),
-                                      blurRadius: 4,
-                                    ),
-                                  ]
-                                : null,
                           ),
                         ),
                       ),
@@ -340,52 +286,22 @@ class _DeviceControlsState extends ConsumerState<DeviceControls> {
                         height: screenWidth * selectButtonRadiusRatio,
                         width: screenWidth * selectButtonRadiusRatio,
                         child: DecoratedBox(
-                          decoration: isTransparent
-                              ? BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: const Color(0xFFFFFFFF)
-                                        .withValues(alpha: 0.80),
-                                    width: 2,
-                                  ),
-                                  gradient: RadialGradient(
-                                    center: const Alignment(-0.3, -0.4),
-                                    radius: 0.85,
-                                    colors: [
-                                      const Color(0xFFFFFFFF)
-                                          .withValues(alpha: 0.65),
-                                      const Color(0xFFDFF0FF)
-                                          .withValues(alpha: 0.25),
-                                      const Color(0xFFFFFFFF)
-                                          .withValues(alpha: 0.12),
-                                    ],
-                                    stops: const [0.0, 0.5, 1.0],
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: const Color(0xFFFFFFFF)
-                                          .withValues(alpha: 0.50),
-                                      blurRadius: 6,
-                                      spreadRadius: 1,
-                                    ),
-                                  ],
-                                )
-                              : BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: deviceColorStyle.controlBorderColor,
-                                  ),
-                                  image: const DecorationImage(
-                                    image: AssetImage(Assets.noiseImage),
-                                    fit: BoxFit.cover,
-                                  ),
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: deviceColorStyle
-                                        .innerButtonGradientColors,
-                                  ),
-                                ),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: deviceColorStyle.controlBorderColor,
+                            ),
+                            image: const DecorationImage(
+                              image: AssetImage(Assets.noiseImage),
+                              fit: BoxFit.cover,
+                            ),
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors:
+                                  deviceColorStyle.innerButtonGradientColors,
+                            ),
+                          ),
                         ),
                       ),
                     ),
