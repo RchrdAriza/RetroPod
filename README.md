@@ -1,10 +1,10 @@
 <div align="center">
 
-# 🎵 RetroPod
+# RetroPod
 
 ![RetroPod App Screenshots](screenshots/combined.jpg)
 
-Introducing "RetroPod" – Your Timeless Audio Experience
+Introducing "RetroPod" - Your Timeless Audio Experience
 
 Step back in time with RetroPod, a local music player app designed to capture the nostalgic essence
 of the iconic iPod Classic. Immerse yourself in the familiar click wheel interface and relive the
@@ -12,73 +12,87 @@ joy of navigating your music library with a touch of retro charm.
 
 </div>
 
-🧭 Intuitive Navigation: Navigate through your music library effortlessly using the virtual click
+**Intuitive Navigation:** Navigate through your music library effortlessly using the virtual click
 wheel. Scroll, click, and feel the tactile response as you rediscover the joy of selecting your
 favorite tracks with the same ease as the original iPod.
 
-🗃️ Local Music Library: RetroPod is focused on your locally stored music files, ensuring that your
+**Local Music Library:** RetroPod is focused on your locally stored music files, ensuring that your
 personal music collection takes center stage. Organize your tracks, albums, and playlists just like
 you did on your trusty iPod Classic.
 
-🖌️ Customizable Themes: Personalize your RetroPod experience with the option of silver or grey
+**Customizable Themes:** Personalize your RetroPod experience with the option of silver or grey
 device frame. Choose from the two different color schemes to tailor the app's appearance to your
 unique style.
 
-🖼️ Cover Art Display: Immerse yourself in your music by appreciating album artwork on the vibrant
+**Interchangeable Skins:** Give your device a fresh look by switching between multiple removable
+skins, from classic glass cases to vibrant stickers, all configurable from the settings.
+
+**Cover Art Display:** Immerse yourself in your music by appreciating album artwork on the vibrant
 display. RetroPod pays homage to the visual appeal of classic iPods by showcasing your favorite
 album covers in a retro-inspired format.
 
-🎼 No Frills, Just Music: RetroPod stays true to the essence of a music player – no distractions, no
+**Built-in Minigames:** Take a break from your playlist with classic iPod-style minigames, including
+Brick and a Music Quiz, all playable directly from the device screen.
+
+**Photos and Videos:** View photos and watch videos stored on your device. Browse through your
+library, open the built-in photo viewer, or play back videos with the dedicated player.
+
+**No Frills, Just Music:** RetroPod stays true to the essence of a music player - no distractions, no
 unnecessary features. Focus solely on the joy of listening to your favorite tunes without the
 complexities of a modern streaming service.
 
-🎧 Offline Listening: Enjoy your music without relying on an internet connection. RetroPod is
+**Offline Listening:** Enjoy your music without relying on an internet connection. RetroPod is
 perfect for those moments when you want to disconnect and savor the tunes stored locally on your
 device.
 
-Relive the magic of the iPod Classic with RetroPod – where timeless design meets the convenience of
+Relive the magic of the iPod Classic with RetroPod - where timeless design meets the convenience of
 today. Download now and embark on a journey down memory lane with your music in the palm of your
 hand.
 
-If you like what you see, please ⭐ the repo.
+If you like what you see, please star the repo.
 
-## ✨ Features
+## Features
 
-- 🗃️ Plays MP3, WAV, FLAC, M4A, MP4, Ogg, Opus, AAC, AIFF, APE, and MOV audio
-- 🔎 Choose a Custom Folder To Scan Music From (By Default it is the Device Music Folder in the root folder
+- Plays MP3, WAV, FLAC, M4A, MP4, Ogg, Opus, AAC, AIFF, APE, and MOV audio
+- Choose a Custom Folder To Scan Music From (By Default it is the Device Music Folder in the root folder
   of the device)
-- 🎨 Multiple Ipod Classic Device Colors (Silver and Black)
-- 🖼️ Displays the Music Metadata (Album Art, Artist Names)
-- ⏩ Ability to seek forward and backwards on a audio file (By Long Pressing the seek
+- Multiple Ipod Classic Device Colors (Silver and Black)
+- Interchangeable Device Skins (Glass cases, Stickers, and more)
+- Displays the Music Metadata (Album Art, Artist Names)
+- Ability to seek forward and backwards on a audio file (By Long Pressing the seek
   forward/backwards buttons)
-- ⏮️ Ability to go to previous and next track in the playlist
-- 📱 Ipod Classic User Interface
-- 🎞️ Cover Flow View
-- 🎡 Click Wheel with Scrollable Rotation Enabled
-- 💿 Now Playing Screen with current music progress displayed
-- 🎶 Songs Screen with all the possible songs from the selected directory
-- 🧑‍🎤 Ability to Filter and Select From a Particular Artist, Album or Genre
-- 📲 Responsive Design For all Different Types of Screen Sizes
-- 🔋 Displays the current device battery level and charging status on the status bar
-- 🎧 Background Playback with Notification Control
-- 🔀 Shuffle Songs Feature
-- ➰ Loop Songs Feature (Loop one song or an entire playlist)
-- 🔉 Click Wheel Sounds
-- 📳 Vibration when clicking buttons and scrolling through the scroll wheel
-- 🔇 In App Volume Control
-- 🪞 Reflective Cover Art
-- ℹ️ About Screen
-- 🌍 Multi Language Support (Over 197 Languages Supported)
-- 👆 Touch Screen Support
-- 📺 Split Screen View (6th and 7th Gen iPod Classic)
-- 🔍 Ability to search songs, artists, playlists and albums
-- ⬇️ Caching Metadata of the songs for faster boot up times
-- 📃 Ability to Create and Store Custom User Created Playlists
-- 📖 App Usage Tutorial
-- ⭐ Song Rating Feature
-- 📝 Displays embedded lyrics in Now Playing
+- Ability to go to previous and next track in the playlist
+- Ipod Classic User Interface
+- Cover Flow View
+- Click Wheel with Scrollable Rotation Enabled
+- Now Playing Screen with current music progress displayed
+- Songs Screen with all the possible songs from the selected directory
+- Ability to Filter and Select From a Particular Artist, Album or Genre
+- Responsive Design For all Different Types of Screen Sizes
+- Displays the current device battery level and charging status on the status bar
+- Background Playback with Notification Control
+- Shuffle Songs Feature
+- Loop Songs Feature (Loop one song or an entire playlist)
+- Click Wheel Sounds
+- Vibration when clicking buttons and scrolling through the scroll wheel
+- In App Volume Control
+- Reflective Cover Art
+- About Screen
+- Multi Language Support (Over 197 Languages Supported)
+- Touch Screen Support
+- Split Screen View (6th and 7th Gen iPod Classic)
+- Ability to search songs, artists, playlists and albums
+- Caching Metadata of the songs for faster boot up times
+- Ability to Create and Store Custom User Created Playlists
+- App Usage Tutorial
+- Song Rating Feature
+- Displays embedded lyrics in Now Playing
+- Built-in Minigames (Brick and Music Quiz)
+- Photo Viewer to browse photos stored on the device
+- Video Player to watch videos stored on the device
+- Ability to scan custom folders for photos and videos
 
-### 🎵 Supported audio formats
+### Supported audio formats
 
 RetroPod imports a format when its metadata can be read and at least one
 configured playback backend can play it. Playback availability therefore varies
@@ -97,12 +111,7 @@ by platform:
 | Monkey's Audio | `.ape`                   | Windows, Linux                                  |
 | QuickTime      | `.mov`                   | iOS, Windows, Linux; browser-dependent          |
 
-### 🔜 Upcoming Features
-
-- 🎮 Ipod Built-in Games
-- 📸 Ability to View Photos and Videos from the device
-
-## 💻 Installation links
+## Installation links
 
 <table>
   <tr>
@@ -165,7 +174,7 @@ by platform:
 
 </table>
 
-## 🔌 Plugins
+## Plugins
 
 | Name                                                                                          | Usage                                                                               |
 |-----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
@@ -203,16 +212,16 @@ by platform:
 | [**hive_ce_generator**](https://pub.dev/packages/hive_ce_generator)                           | For automatically generating Hive TypeAdapters                                      |
 | [**riverpod_lint**](https://pub.dev/packages/riverpod_lint)                                   | For using riverpod specific linting rules                                           |
 
-## 🤓 Author
+## Author
 
 **[Aditya R](https://github.com/adeeteya)**
 
-## 🔖 LICENCE
+## Licence
 
 Copyright (c) 2025 Aditya R
-[BSD-4-Clause LICENCE](https://github.com/RchrdAriza/RetroPod/blob/master/LICENSE)
+[BSD-4-Clause Licence](https://github.com/RchrdAriza/RetroPod/blob/master/LICENSE)
 
-## 🙏 Attributions
+## Attributions
 
 <a href="https://www.flaticon.com/free-icons/ipod" title="ipod icons">Ipod icons created by
 Freepik - Flaticon</a>
