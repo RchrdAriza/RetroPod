@@ -56,7 +56,13 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
         getByName("release") {
-            signingConfig = signingConfigs.getByName("release")
+            // Fallback to debug signing if the release keystore isn't configured
+            val storeFilePath = keystoreProperties["storeFile"] as? String
+            signingConfig = if (storeFilePath != null) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
         }
     }
 

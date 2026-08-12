@@ -303,4 +303,16 @@ class AudioPlayerServiceNotifier extends AsyncNotifier<void> {
           .seek(Duration(seconds: targetDurationInSeconds));
     });
   }
+
+  /// Plays a single song snippet (used by Music Quiz).
+  /// Sets a temporary single-item playlist without updating NowPlaying state.
+  Future<void> playSingleSong(MusicMetadata metadata) async {
+    try {
+      final player = ref.read(audioPlayerProvider);
+      await player.setAudioSource(metadata.toAudioSource());
+      await player.seek(Duration.zero);
+      await player.play();
+    } catch (_) {}
+  }
 }
+

@@ -1,6 +1,9 @@
 import 'dart:async';
+import 'dart:io' as io;
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:retropod/core/extensions/build_context_extensions.dart';
@@ -15,20 +18,29 @@ import 'package:retropod/features/tutorial/controller/tutorial_controller.dart';
 
 enum _MainMenuDisplayItems {
   music,
+  extras,
+  media,
   settings,
   shuffleSongs,
-  nowPlaying;
+  nowPlaying,
+  powerOff;
 
   String title(BuildContext context) {
     switch (this) {
       case music:
         return context.localization.musicMenuScreenTitle;
+      case extras:
+        return context.localization.extrasMenuTitle;
+      case media:
+        return context.localization.mediaMenuTitle;
       case settings:
         return context.localization.settingsScreenTitle;
       case shuffleSongs:
         return context.localization.shuffleSongsMenuTitle;
       case nowPlaying:
         return context.localization.nowPlayingScreenTitle;
+      case powerOff:
+        return context.localization.powerOffMenuTitle;
     }
   }
 }
@@ -65,6 +77,12 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen>
       case _MainMenuDisplayItems.music:
         context.goNamed(Routes.musicMenu.name);
         break;
+      case _MainMenuDisplayItems.extras:
+        await context.pushNamed(Routes.extras.name);
+        break;
+      case _MainMenuDisplayItems.media:
+        await context.pushNamed(Routes.media.name);
+        break;
       case _MainMenuDisplayItems.nowPlaying:
         await _navigateToNowPlayingScreen();
         break;
@@ -75,6 +93,21 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen>
         await ref.read(audioPlayerServiceProvider.notifier).shuffleAllSongs();
         await _navigateToNowPlayingScreen();
         break;
+      case _MainMenuDisplayItems.powerOff:
+        await _powerOff();
+        break;
+    }
+  }
+
+  Future<void> _powerOff() async {
+    await ref.read(audioPlayerServiceProvider.notifier).stop();
+    await Future<void>.delayed(const Duration(milliseconds: 200));
+    if (kIsWeb) {
+      await SystemNavigator.pop();
+    } else if (io.Platform.isIOS) {
+      await SystemNavigator.pop();
+    } else {
+      io.exit(0);
     }
   }
 
@@ -102,6 +135,8 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen>
       case _MainMenuDisplayItems.nowPlaying:
         ref.read(splitScreenControllerProvider.notifier).changeSplitScreenType =
             SplitScreenType.nowPlaying;
+        break;
+      default:
         break;
     }
   }

@@ -543,5 +543,116 @@
   "excludeDirectoriesScreenTitle": "Exclude Directories",
   "@excludeDirectoriesScreenTitle": {
     "description": "The title of the exclude directories screen"
+  },
+  "extrasMenuTitle": "Extras",
+  "@extrasMenuTitle": {
+    "description": "The title of the extras menu (games, etc.)"
+  },
+  "gamesMenuTitle": "Games",
+  "@gamesMenuTitle": {
+    "description": "The title of the games menu"
+  },
+  "photosMenuTitle": "Photos",
+  "@photosMenuTitle": {
+    "description": "The title of the photos menu"
+  },
+  "videosMenuTitle": "Videos",
+  "@videosMenuTitle": {
+    "description": "The title of the videos menu"
+  },
+  "mediaMenuTitle": "Photos & Videos",
+  "@mediaMenuTitle": {
+    "description": "The title of the photos and videos menu"
+  },
+  "powerOffMenuTitle": "Power Off",
+  "@powerOffMenuTitle": {
+    "description": "The label for the power off option in the main menu"
+  },
+  "brickGameTitle": "Brick",
+  "@brickGameTitle": {
+    "description": "The title of the Brick (Breakout) minigame"
+  },
+  "musicQuizGameTitle": "Music Quiz",
+  "@musicQuizGameTitle": {
+    "description": "The title of the Music Quiz minigame"
+  },
+  "noPhotosFound": "No photos found",
+  "@noPhotosFound": {
+    "description": "Shown when no photo files are found on the device"
+  },
+  "noVideosFound": "No videos found",
+  "@noVideosFound": {
+    "description": "Shown when no video files are found on the device"
+  },
+  "musicQuizCorrect": "Correct!",
+  "@musicQuizCorrect": {
+    "description": "Shown when the user answers a Music Quiz question correctly"
+  },
+  "musicQuizWrong": "Wrong!",
+  "@musicQuizWrong": {
+    "description": "Shown when the user answers a Music Quiz question incorrectly"
+  },
+  "musicQuizScore": "Score: {score}",
+  "@musicQuizScore": {
+    "description": "The score display in Music Quiz",
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "musicQuizQuestion": "Question {current} of {total}",
+  "@musicQuizQuestion": {
+    "description": "Music Quiz question counter",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "addFolderButton": "Add Folder",
+  "@addFolderButton": {
+    "description": "Button label to add a custom media folder"
+  },
+  "brickGameOver": "Game Over",
+  "@brickGameOver": {
+    "description": "Shown when the player loses in Brick"
+  },
+  "brickGameWin": "You Win!",
+  "@brickGameWin": {
+    "description": "Shown when the player wins in Brick"
+  },
+  "brickScore": "Score: {score}",
+  "@brickScore": {
+    "description": "Score display in Brick game",
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "musicQuizNoSongs": "Not enough songs in library to play Music Quiz. Please add at least 4 songs.",
+  "@musicQuizNoSongs": {
+    "description": "Shown when the music library does not have enough songs for Music Quiz"
+  },
+  "musicQuizFinished": "Quiz Complete!",
+  "@musicQuizFinished": {
+    "description": "Shown when all Music Quiz questions have been answered"
+  },
+  "musicQuizFinalScore": "Final Score: {score}/{total}",
+  "@musicQuizFinalScore": {
+    "description": "The final score display at the end of Music Quiz",
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
   }
 }
+

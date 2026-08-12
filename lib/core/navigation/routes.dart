@@ -9,6 +9,15 @@ import 'package:retropod/features/app_startup/screens/splash_screen.dart';
 import 'package:retropod/features/custom_screen_elements/custom_scroll_behavior.dart';
 import 'package:retropod/features/custom_screen_elements/options_modal_page.dart';
 import 'package:retropod/features/device/widgets/device_frame.dart';
+import 'package:retropod/features/games/screens/brick_game_screen.dart';
+import 'package:retropod/features/games/screens/games_menu_screen.dart';
+import 'package:retropod/features/games/screens/music_quiz_screen.dart';
+import 'package:retropod/features/media/models/media_file_model.dart';
+import 'package:retropod/features/media/screens/media_menu_screen.dart';
+import 'package:retropod/features/media/screens/photo_viewer_screen.dart';
+import 'package:retropod/features/media/screens/photos_screen.dart';
+import 'package:retropod/features/media/screens/video_player_screen.dart';
+import 'package:retropod/features/media/screens/videos_screen.dart';
 import 'package:retropod/features/menu/screens/main_menu_screen.dart';
 import 'package:retropod/features/menu/screens/music_menu_screen.dart';
 import 'package:retropod/features/menu/screens/split_screen_placeholder.dart';
@@ -73,7 +82,16 @@ enum Routes {
   genreSongs,
   genresSongsMoreOptions,
   search,
-  searchMoreOptions;
+  searchMoreOptions,
+  // New features
+  extras,
+  brick,
+  musicQuiz,
+  media,
+  photos,
+  photoViewer,
+  videos,
+  videoPlayer;
 
   @override
   String toString() {
@@ -146,6 +164,22 @@ enum Routes {
         return context.localization.searchScreenTitle;
       case searchMoreOptions:
         return context.localization.searchScreenTitle;
+      case extras:
+        return context.localization.extrasMenuTitle;
+      case brick:
+        return context.localization.brickGameTitle;
+      case musicQuiz:
+        return context.localization.musicQuizGameTitle;
+      case media:
+        return context.localization.mediaMenuTitle;
+      case photos:
+        return context.localization.photosMenuTitle;
+      case photoViewer:
+        return context.localization.photosMenuTitle;
+      case videos:
+        return context.localization.videosMenuTitle;
+      case videoPlayer:
+        return context.localization.videosMenuTitle;
     }
   }
 }
@@ -611,6 +645,87 @@ final routerProvider = Provider(
                             ),
                           ),
                         ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              // ── Extras (Games) ────────────────────────────────────────
+              GoRoute(
+                path: Routes.extras.toString(),
+                name: Routes.extras.name,
+                parentNavigatorKey: menuNavigatorKey,
+                pageBuilder: (context, state) =>
+                    const CupertinoPage(child: GamesMenuScreen()),
+                routes: [
+                  GoRoute(
+                    path: Routes.brick.name,
+                    name: Routes.brick.name,
+                    parentNavigatorKey: rootNavigatorKey,
+                    pageBuilder: (context, state) =>
+                        const CupertinoPage(child: BrickGameScreen()),
+                  ),
+                  GoRoute(
+                    path: Routes.musicQuiz.name,
+                    name: Routes.musicQuiz.name,
+                    parentNavigatorKey: rootNavigatorKey,
+                    pageBuilder: (context, state) =>
+                        const CupertinoPage(child: MusicQuizScreen()),
+                  ),
+                ],
+              ),
+              // ── Media (Photos & Videos) ───────────────────────────────
+              GoRoute(
+                path: Routes.media.toString(),
+                name: Routes.media.name,
+                parentNavigatorKey: menuNavigatorKey,
+                pageBuilder: (context, state) =>
+                    const CupertinoPage(child: MediaMenuScreen()),
+                routes: [
+                  GoRoute(
+                    path: Routes.photos.name,
+                    name: Routes.photos.name,
+                    parentNavigatorKey: rootNavigatorKey,
+                    pageBuilder: (context, state) =>
+                        const CupertinoPage(child: PhotosScreen()),
+                    routes: [
+                      GoRoute(
+                        path: Routes.photoViewer.name,
+                        name: Routes.photoViewer.name,
+                        parentNavigatorKey: rootNavigatorKey,
+                        pageBuilder: (context, state) {
+                          final extra =
+                              state.extra as Map<String, dynamic>? ?? {};
+                          final photos = (extra['photos'] as List?)
+                                  ?.cast<MediaFileModel>() ??
+                              [];
+                          final index = (extra['index'] as int?) ?? 0;
+                          return CupertinoPage(
+                            child: PhotoViewerScreen(
+                              photos: photos,
+                              initialIndex: index,
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  GoRoute(
+                    path: Routes.videos.name,
+                    name: Routes.videos.name,
+                    parentNavigatorKey: rootNavigatorKey,
+                    pageBuilder: (context, state) =>
+                        const CupertinoPage(child: VideosScreen()),
+                    routes: [
+                      GoRoute(
+                        path: Routes.videoPlayer.name,
+                        name: Routes.videoPlayer.name,
+                        parentNavigatorKey: rootNavigatorKey,
+                        pageBuilder: (context, state) => CupertinoPage(
+                          child: VideoPlayerScreen(
+                            video: state.extra as MediaFileModel,
+                          ),
+                        ),
                       ),
                     ],
                   ),
