@@ -1,6 +1,6 @@
 {
   "@@locale": "hu",
-  "appTitle": "Classipod",
+  "appTitle": "RetroPod",
   "menuButtonText": "MENÜ",
   "audioAccessPermissionTitle": "Audio hozzáférési engedély szükséges",
   "audioAccessPermissionContent": "Kérjük, biztosítsa az audio fájlok hozzáférését, hogy lehetővé tegyük a zenei fájlok lejátszását.",

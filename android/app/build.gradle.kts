@@ -17,7 +17,7 @@ try {
 }
 
 android {
-    namespace = "com.adeeteya.classipod"
+    namespace = "com.rchrdariza.retropod"
     compileSdk = 37
     ndkVersion = "28.2.13676358"
 
@@ -27,7 +27,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.adeeteya.classipod"
+        applicationId = "com.rchrdariza.retropod"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
@@ -64,12 +64,12 @@ android {
     productFlavors {
         create("production") {
             dimension = "default"
-            resValue("string", "app_name", "Classipod")
+            resValue("string", "app_name", "RetroPod")
             applicationIdSuffix = ""
         }
         create("dev") {
             dimension = "default"
-            resValue("string", "app_name", "Classipod Dev")
+            resValue("string", "app_name", "RetroPod Dev")
             applicationIdSuffix = ".dev"
             versionNameSuffix = "-dev"
         }

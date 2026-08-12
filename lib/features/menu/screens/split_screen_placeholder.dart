@@ -1,18 +1,18 @@
 import 'dart:async';
 
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/features/menu/controller/split_screen_controller.dart';
-import 'package:classipod/features/menu/models/split_screen_type.dart';
-import 'package:classipod/features/menu/widgets/animated_album_art_scroller.dart';
-import 'package:classipod/features/menu/widgets/icon_preview_widget.dart';
-import 'package:classipod/features/menu/widgets/language_preview_widget.dart';
-import 'package:classipod/features/menu/widgets/now_playing_preview_widget.dart';
-import 'package:classipod/features/menu/widgets/settings_preview_widget.dart';
-import 'package:classipod/features/music/songs/provider/songs_provider.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
-import 'package:classipod/features/sleep_timer/widgets/sleep_timer_preview_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/features/menu/controller/split_screen_controller.dart';
+import 'package:retropod/features/menu/models/split_screen_type.dart';
+import 'package:retropod/features/menu/widgets/animated_album_art_scroller.dart';
+import 'package:retropod/features/menu/widgets/icon_preview_widget.dart';
+import 'package:retropod/features/menu/widgets/language_preview_widget.dart';
+import 'package:retropod/features/menu/widgets/now_playing_preview_widget.dart';
+import 'package:retropod/features/menu/widgets/settings_preview_widget.dart';
+import 'package:retropod/features/music/songs/provider/songs_provider.dart';
+import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
+import 'package:retropod/features/sleep_timer/widgets/sleep_timer_preview_widget.dart';
 
 class SplitScreenViewController {
   _SplitScreenPlaceholderState? _state;

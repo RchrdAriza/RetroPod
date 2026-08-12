@@ -1,9 +1,3 @@
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/navigation/routes.dart';
-import 'package:classipod/features/app_startup/screens/app_startup_screen.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
-import 'package:classipod/l10n/generated/app_localizations.dart';
 import 'package:device_preview_plus/device_preview_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +5,12 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/navigation/routes.dart';
+import 'package:retropod/features/app_startup/screens/app_startup_screen.dart';
+import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
+import 'package:retropod/l10n/generated/app_localizations.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,14 +29,14 @@ void main() {
       child: DevicePreview(
         tools: const [...DevicePreview.defaultTools, DebuggerToolsSection()],
         builder: (context) =>
-            const AppStartupScreen(app: DevelopmentClassipodApp()),
+            const AppStartupScreen(app: DevelopmentRetropodApp()),
       ),
     ),
   );
 }
 
-class DevelopmentClassipodApp extends ConsumerWidget {
-  const DevelopmentClassipodApp({super.key});
+class DevelopmentRetropodApp extends ConsumerWidget {
+  const DevelopmentRetropodApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

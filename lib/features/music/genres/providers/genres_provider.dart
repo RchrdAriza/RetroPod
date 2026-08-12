@@ -1,5 +1,5 @@
-import 'package:classipod/core/providers/filtered_audio_files_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/providers/filtered_audio_files_provider.dart';
 
 final genresProvider = Provider<List<String>>((ref) {
   final genreNamesSet = <String>{};

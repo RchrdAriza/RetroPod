@@ -1,4 +1,4 @@
-package com.adeeteya.classipod
+package com.rchrdariza.retropod
 
 import io.flutter.embedding.android.FlutterActivity
 

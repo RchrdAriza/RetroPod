@@ -1,20 +1,20 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:classipod/core/constants/constants.dart';
-import 'package:classipod/core/models/music_metadata.dart';
-import 'package:classipod/core/providers/device_directory_provider.dart';
-import 'package:classipod/core/providers/shared_preferences_with_cache_provider.dart';
-import 'package:classipod/features/music/playlist/models/playlist_model.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
-import 'package:classipod/features/settings/models/exclude_directory_model.dart';
-import 'package:classipod/hive/hive_registrar.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 import 'package:just_audio_media_kit/just_audio_media_kit.dart';
+import 'package:retropod/core/constants/constants.dart';
+import 'package:retropod/core/models/music_metadata.dart';
+import 'package:retropod/core/providers/device_directory_provider.dart';
+import 'package:retropod/core/providers/shared_preferences_with_cache_provider.dart';
+import 'package:retropod/features/music/playlist/models/playlist_model.dart';
+import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
+import 'package:retropod/features/settings/models/exclude_directory_model.dart';
+import 'package:retropod/hive/hive_registrar.g.dart';
 
 final appStartupControllerProvider = FutureProvider<void>((ref) async {
   await Future.wait([
@@ -25,7 +25,7 @@ final appStartupControllerProvider = FutureProvider<void>((ref) async {
       ]),
       JustAudioBackground.init(
         androidNotificationChannelId: 'com.ryanheise.bg_demo.channel.audio',
-        androidNotificationChannelName: 'ClassiPod Audio playback',
+        androidNotificationChannelName: 'RetroPod Audio playback',
         androidNotificationChannelDescription:
             'Notification to control the currently playing music files',
         androidNotificationOngoing: true,
@@ -34,7 +34,7 @@ final appStartupControllerProvider = FutureProvider<void>((ref) async {
     ],
     if (!kIsWeb) ref.watch(deviceDirectoryProvider.future),
     ref.watch(sharedPreferencesWithCacheProvider.future),
-    Hive.initFlutter("ClassiPod"),
+    Hive.initFlutter("RetroPod"),
   ]);
   Hive.registerAdapters();
   await Hive.openBox<MusicMetadata>(Constants.metadataBoxName);
@@ -44,7 +44,7 @@ final appStartupControllerProvider = FutureProvider<void>((ref) async {
   );
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux)) {
     JustAudioMediaKit.ensureInitialized();
-    JustAudioMediaKit.title = 'ClassiPod';
+    JustAudioMediaKit.title = 'RetroPod';
   }
   ref
       .read(settingsPreferencesControllerProvider.notifier)

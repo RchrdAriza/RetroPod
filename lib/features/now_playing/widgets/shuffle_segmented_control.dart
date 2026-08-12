@@ -1,7 +1,7 @@
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/widgets/custom_sliding_segmented_control.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/widgets/custom_sliding_segmented_control.dart';
 
 class ShuffleSegmentedControl extends StatelessWidget {
   final bool isShuffleEnabled;

@@ -1,11 +1,11 @@
-name: classipod
+name: retropod
 version: 1.12.0
 summary: Local Music Player Inspired by the iPod Classic
-description: ClassiPod is a lightweight, offline music player app that emulates the experience of the legendary iPod Classic. It supports local music playback, shuffle/repeat, custom playlists, cover art, and more — all in a nostalgic design.
-icon: snap/gui/classipod.png
+description: RetroPod is a lightweight, offline music player app that emulates the experience of the legendary iPod Classic. It supports local music playback, shuffle/repeat, custom playlists, cover art, and more — all in a nostalgic design.
+icon: snap/gui/retropod.png
 contact: mailto:adeeteya@gmail.com
-source-code: https://github.com/adeeteya/Classipod
-issues: https://github.com/adeeteya/Classipod/issues
+source-code: https://github.com/RchrdAriza/RetroPod
+issues: https://github.com/RchrdAriza/RetroPod/issues
 license: BSD-4-Clause
 
 confinement: strict
@@ -13,14 +13,14 @@ base: core22
 grade: stable
 
 slots:
-  dbus-classipod:
+  dbus-retropod:
     interface: dbus
     bus: session
-    name: com.adeeteya.classipod
+    name: com.rchrdariza.retropod
 
 apps:
-  classipod:
-    command: classipod
+  retropod:
+    command: retropod
     extensions: [gnome]
     plugs:
       - audio-playback
@@ -29,9 +29,9 @@ apps:
       - desktop-legacy
       - home
     slots:
-      - dbus-classipod
+      - dbus-retropod
 parts:
-  classipod:
+  retropod:
     source: .
     plugin: flutter
     flutter-target: lib/main.dart
@@ -74,5 +74,5 @@ parts:
       flutter pub get
       flutter gen-l10n
       flutter build linux --release --target lib/main.dart
-      install -D build/linux/x64/release/bundle/classipod $CRAFT_PART_INSTALL/classipod
+      install -D build/linux/x64/release/bundle/retropod $CRAFT_PART_INSTALL/retropod
       cp -r build/linux/x64/release/bundle/* $CRAFT_PART_INSTALL/

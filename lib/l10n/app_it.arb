@@ -1,6 +1,6 @@
 {
   "@@locale": "it",
-  "appTitle": "Classipod",
+  "appTitle": "RetroPod",
   "menuButtonText": "MENU",
   "audioAccessPermissionTitle": "Autorizzazione dell'accesso audio richiesto",
   "audioAccessPermissionContent": "Si prega di concedere l'accesso ai file audio per consentirci di riprodurre i tuoi file musicali.",

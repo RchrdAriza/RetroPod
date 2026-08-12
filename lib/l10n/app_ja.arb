@@ -1,6 +1,6 @@
 {
   "@@locale": "ja",
-  "appTitle": "classipod",
+  "appTitle": "RetroPod",
   "menuButtonText": "メニュー",
   "audioAccessPermissionTitle": "オーディオアクセス許可が必要です",
   "audioAccessPermissionContent": "音楽ファイルを再生できるように、オーディオファイルアクセスを許可してください。",

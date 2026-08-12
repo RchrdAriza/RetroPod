@@ -1,7 +1,7 @@
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/features/music/playlist/models/playlist_model.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/features/music/playlist/models/playlist_model.dart';
 
 class PlaylistListTile extends StatelessWidget {
   final PlaylistModel playlistModel;

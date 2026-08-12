@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: ClassiPod
+title: RetroPod
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -9,9 +9,9 @@ authors:
     family-names: R
     email: adeeteya@gmail.com
     orcid: 'https://orcid.org/0009-0009-7558-063X'
-repository-code: 'https://github.com/adeeteya/Classipod'
-url: 'https://adeeteya.github.io/Classipod/#/'
-repository-artifact: 'https://github.com/adeeteya/Classipod/releases/latest'
+repository-code: 'https://github.com/RchrdAriza/RetroPod'
+url: 'https://RchrdAriza.github.io/RetroPod/#/'
+repository-artifact: 'https://github.com/RchrdAriza/RetroPod/releases/latest'
 abstract: >-
   A local music player app designed to capture the nostalgic
   essence of the iconic iPod Classic.

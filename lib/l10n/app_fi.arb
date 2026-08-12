@@ -1,6 +1,6 @@
 {
   "@@locale": "fi",
-  "appTitle": "Classipod",
+  "appTitle": "RetroPod",
   "menuButtonText": "Valikko",
   "audioAccessPermissionTitle": "Vaadittava äänen käyttöoikeus",
   "audioAccessPermissionContent": "Anna äänitiedostojen käyttöoikeus, jotta voimme toistaa musiikkitiedostoja.",

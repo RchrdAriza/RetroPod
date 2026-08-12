@@ -1,17 +1,17 @@
 import 'dart:async';
 
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/navigation/routes.dart';
-import 'package:classipod/core/providers/filtered_audio_files_provider.dart';
-import 'package:classipod/core/widgets/empty_state_widget.dart';
-import 'package:classipod/features/custom_screen_elements/custom_screen.dart';
-import 'package:classipod/features/music/album/models/album_model.dart';
-import 'package:classipod/features/music/album/providers/album_details_provider.dart';
-import 'package:classipod/features/music/album/widgets/album_list_tile.dart';
-import 'package:classipod/features/status_bar/widgets/status_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/navigation/routes.dart';
+import 'package:retropod/core/providers/filtered_audio_files_provider.dart';
+import 'package:retropod/core/widgets/empty_state_widget.dart';
+import 'package:retropod/features/custom_screen_elements/custom_screen.dart';
+import 'package:retropod/features/music/album/models/album_model.dart';
+import 'package:retropod/features/music/album/providers/album_details_provider.dart';
+import 'package:retropod/features/music/album/widgets/album_list_tile.dart';
+import 'package:retropod/features/status_bar/widgets/status_bar.dart';
 
 class AlbumsSelectionScreen extends ConsumerStatefulWidget {
   const AlbumsSelectionScreen({super.key});

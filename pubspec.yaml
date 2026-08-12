@@ -1,4 +1,4 @@
-name: classipod
+name: retropod
 description: "A ipod Classic Emulator"
 
 publish_to: "none"
@@ -57,6 +57,7 @@ dev_dependencies:
   hive_ce_generator: ^1.11.2
   riverpod_lint: ^3.1.4
 
+  shared_preferences_platform_interface: any
 flutter:
   generate: true
   uses-material-design: true

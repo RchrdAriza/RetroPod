@@ -1,14 +1,14 @@
-import 'package:classipod/core/constants/constants.dart';
-import 'package:classipod/core/models/shared_preference_keys.dart';
-import 'package:classipod/core/providers/shared_preferences_with_cache_provider.dart';
-import 'package:classipod/features/settings/models/app_theme.dart';
-import 'package:classipod/features/settings/models/click_wheel_sensitivity.dart';
-import 'package:classipod/features/settings/models/click_wheel_size.dart';
-import 'package:classipod/features/settings/models/device_color.dart';
-import 'package:classipod/features/settings/models/device_skin.dart';
-import 'package:classipod/features/settings/models/repeat_mode.dart';
-import 'package:classipod/features/settings/models/volume_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/constants/constants.dart';
+import 'package:retropod/core/models/shared_preference_keys.dart';
+import 'package:retropod/core/providers/shared_preferences_with_cache_provider.dart';
+import 'package:retropod/features/settings/models/app_theme.dart';
+import 'package:retropod/features/settings/models/click_wheel_sensitivity.dart';
+import 'package:retropod/features/settings/models/click_wheel_size.dart';
+import 'package:retropod/features/settings/models/device_color.dart';
+import 'package:retropod/features/settings/models/device_skin.dart';
+import 'package:retropod/features/settings/models/repeat_mode.dart';
+import 'package:retropod/features/settings/models/volume_mode.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final settingsPreferencesRepositoryProvider =

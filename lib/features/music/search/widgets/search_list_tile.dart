@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/core/constants/assets.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/models/music_metadata.dart';
-import 'package:classipod/features/music/album/models/album_model.dart';
-import 'package:classipod/features/music/search/model/search_model.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/core/constants/assets.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/models/music_metadata.dart';
+import 'package:retropod/features/music/album/models/album_model.dart';
+import 'package:retropod/features/music/search/model/search_model.dart';
 
 class SearchListTile extends StatelessWidget {
   final SearchResultsModel searchResult;

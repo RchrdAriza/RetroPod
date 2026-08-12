@@ -1,12 +1,12 @@
-import 'package:classipod/core/constants/assets.dart';
-import 'package:classipod/core/constants/keys.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/features/device/widgets/device_controls.dart';
-import 'package:classipod/features/device/widgets/device_screen.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
-import 'package:classipod/features/settings/models/device_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/constants/assets.dart';
+import 'package:retropod/core/constants/keys.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/features/device/widgets/device_controls.dart';
+import 'package:retropod/features/device/widgets/device_screen.dart';
+import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
+import 'package:retropod/features/settings/models/device_color.dart';
 
 class DeviceFrame extends ConsumerWidget {
   final Widget child;

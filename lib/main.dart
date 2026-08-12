@@ -1,9 +1,9 @@
-import 'package:classipod/classipod_app.dart';
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/features/app_startup/screens/app_startup_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/features/app_startup/screens/app_startup_screen.dart';
+import 'package:retropod/retropod_app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,5 +17,5 @@ void main() {
     ),
   );
 
-  runApp(const ProviderScope(child: AppStartupScreen(app: ClassipodApp())));
+  runApp(const ProviderScope(child: AppStartupScreen(app: RetropodApp())));
 }

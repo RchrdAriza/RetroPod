@@ -1,9 +1,9 @@
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/features/menu/models/split_screen_type.dart';
-import 'package:classipod/features/now_playing/provider/now_playing_details_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/features/menu/models/split_screen_type.dart';
+import 'package:retropod/features/now_playing/provider/now_playing_details_provider.dart';
 
 class NowPlayingPreviewWidget extends ConsumerWidget {
   const NowPlayingPreviewWidget({super.key});

@@ -1,14 +1,14 @@
 import 'dart:async';
 
-import 'package:classipod/core/alerts/dialogs.dart';
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/core/constants/assets.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/navigation/routes.dart';
-import 'package:classipod/features/app_startup/controllers/splash_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:retropod/core/alerts/dialogs.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/core/constants/assets.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/navigation/routes.dart';
+import 'package:retropod/features/app_startup/controllers/splash_controller.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});

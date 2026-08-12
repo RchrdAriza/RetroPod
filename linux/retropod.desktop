@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=Classipod
+Name=RetroPod
 Comment=An iPod Classic-inspired local music player with playlists, cover art, and shuffle mode and dark mode support
-Exec=/usr/bin/classipod
-Icon=/usr/share/icons/classipod/classipod.png
+Exec=/usr/bin/retropod
+Icon=/usr/share/icons/retropod/retropod.png
 Terminal=false
 Type=Application
 Categories=AudioVideo;Audio;Player;Music;
-StartupWMClass=classipod
+StartupWMClass=retropod

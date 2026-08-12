@@ -1,16 +1,16 @@
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/extensions/go_router_extensions.dart';
-import 'package:classipod/core/navigation/routes.dart';
-import 'package:classipod/core/providers/filtered_audio_files_provider.dart';
-import 'package:classipod/features/device/models/device_action.dart';
-import 'package:classipod/features/device/services/device_buttons_service_provider.dart';
-import 'package:classipod/features/music/album/providers/album_details_provider.dart';
-import 'package:classipod/features/music/artists/providers/artist_names_provider.dart';
-import 'package:classipod/features/settings/widgets/about_list_tile.dart';
-import 'package:classipod/features/status_bar/widgets/status_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/extensions/go_router_extensions.dart';
+import 'package:retropod/core/navigation/routes.dart';
+import 'package:retropod/core/providers/filtered_audio_files_provider.dart';
+import 'package:retropod/features/device/models/device_action.dart';
+import 'package:retropod/features/device/services/device_buttons_service_provider.dart';
+import 'package:retropod/features/music/album/providers/album_details_provider.dart';
+import 'package:retropod/features/music/artists/providers/artist_names_provider.dart';
+import 'package:retropod/features/settings/widgets/about_list_tile.dart';
+import 'package:retropod/features/status_bar/widgets/status_bar.dart';
 
 class AboutScreen extends ConsumerWidget {
   const AboutScreen({super.key});

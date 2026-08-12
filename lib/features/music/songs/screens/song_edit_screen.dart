@@ -1,9 +1,9 @@
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/models/music_metadata.dart';
-import 'package:classipod/features/now_playing/provider/now_playing_details_provider.dart';
-import 'package:classipod/features/status_bar/widgets/status_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/models/music_metadata.dart';
+import 'package:retropod/features/now_playing/provider/now_playing_details_provider.dart';
+import 'package:retropod/features/status_bar/widgets/status_bar.dart';
 
 class SongEditScreen extends ConsumerStatefulWidget {
   final MusicMetadata songMetadata;

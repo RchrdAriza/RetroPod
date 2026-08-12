@@ -1,10 +1,10 @@
-#define MyAppName "ClassiPod"
-#define MyAppPublisher "Adeeteya"
-#define MyAppPublisherURL "https://github.com/adeeteya/"
-#define MyAppURL "https://github.com/adeeteya/Classipod"
-#define MyAppExeName "Classipod.exe"
-#define MyAppContact "adeeteya@gmail.com"
-#define MyAppCopyright "Copyright (C) 2025 Adeeteya"
+#define MyAppName "RetroPod"
+#define MyAppPublisher "rchrdariza"
+#define MyAppPublisherURL "https://github.com/RchrdAriza/"
+#define MyAppURL "https://github.com/RchrdAriza/RetroPod"
+#define MyAppExeName "RetroPod.exe"
+#define MyAppContact "rchrdariza@gmail.com"
+#define MyAppCopyright "Copyright (C) 2025 rchrdariza"
 #define Workspace GetEnv("GITHUB_WORKSPACE")
 
 [Setup]
@@ -23,7 +23,7 @@ AppCopyright={#MyAppCopyright}
 DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
 OutputDir={#Workspace}
-OutputBaseFilename=Classipod-Windows
+OutputBaseFilename=RetroPod-Windows
 SetupIconFile={#Workspace}\windows\runner\resources\app_icon.ico
 Compression=lzma
 SolidCompression=yes
@@ -55,9 +55,9 @@ Name: "{app}\uninstall-{#MyAppName}"; Filename: "{uninstallexe}"
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
 [UninstallDelete]
-Type: files; Name: "{userdocs}\ClassiPod\metadata_box.hive"
-Type: files; Name: "{userdocs}\ClassiPod\metadata_box.lock"
-Type: files; Name: "{userdocs}\ClassiPod\playlist_box.hive"
-Type: files; Name: "{userdocs}\ClassiPod\playlist_box.lock"
-Type: files; Name: "{userdocs}\ClassiPod\excluded_directories_box.hive"
-Type: files; Name: "{userdocs}\ClassiPod\excluded_directories_box.lock"
+Type: files; Name: "{userdocs}\RetroPod\metadata_box.hive"
+Type: files; Name: "{userdocs}\RetroPod\metadata_box.lock"
+Type: files; Name: "{userdocs}\RetroPod\playlist_box.hive"
+Type: files; Name: "{userdocs}\RetroPod\playlist_box.lock"
+Type: files; Name: "{userdocs}\RetroPod\excluded_directories_box.hive"
+Type: files; Name: "{userdocs}\RetroPod\excluded_directories_box.lock"

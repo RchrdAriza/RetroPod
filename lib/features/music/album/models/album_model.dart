@@ -1,5 +1,5 @@
-import 'package:classipod/core/models/music_metadata.dart';
-import 'package:classipod/core/utils/artist_name_utils.dart';
+import 'package:retropod/core/models/music_metadata.dart';
+import 'package:retropod/core/utils/artist_name_utils.dart';
 
 class AlbumModel {
   final String albumName;

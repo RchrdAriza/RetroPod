@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:classipod/core/constants/constants.dart';
+import 'package:retropod/core/constants/constants.dart';
 
 class DeviceDirectory {
   final Directory documentsDirectory;

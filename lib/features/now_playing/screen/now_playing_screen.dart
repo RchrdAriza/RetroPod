@@ -1,26 +1,26 @@
 import 'dart:async';
 
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/extensions/go_router_extensions.dart';
-import 'package:classipod/core/navigation/routes.dart';
-import 'package:classipod/core/services/audio_player_service.dart';
-import 'package:classipod/core/widgets/empty_state_widget.dart';
-import 'package:classipod/features/device/models/device_action.dart';
-import 'package:classipod/features/device/services/device_buttons_service_provider.dart';
-import 'package:classipod/features/now_playing/provider/now_playing_details_provider.dart';
-import 'package:classipod/features/now_playing/widgets/lyrics_view.dart';
-import 'package:classipod/features/now_playing/widgets/now_playing_bottom_bar.dart';
-import 'package:classipod/features/now_playing/widgets/now_playing_widget.dart';
-import 'package:classipod/features/now_playing/widgets/rating_bar.dart';
-import 'package:classipod/features/now_playing/widgets/shuffle_segmented_control.dart';
-import 'package:classipod/features/now_playing/widgets/volume_bar.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
-import 'package:classipod/features/status_bar/widgets/status_bar.dart';
-import 'package:classipod/features/tutorial/controller/tutorial_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/extensions/go_router_extensions.dart';
+import 'package:retropod/core/navigation/routes.dart';
+import 'package:retropod/core/services/audio_player_service.dart';
+import 'package:retropod/core/widgets/empty_state_widget.dart';
+import 'package:retropod/features/device/models/device_action.dart';
+import 'package:retropod/features/device/services/device_buttons_service_provider.dart';
+import 'package:retropod/features/now_playing/provider/now_playing_details_provider.dart';
+import 'package:retropod/features/now_playing/widgets/lyrics_view.dart';
+import 'package:retropod/features/now_playing/widgets/now_playing_bottom_bar.dart';
+import 'package:retropod/features/now_playing/widgets/now_playing_widget.dart';
+import 'package:retropod/features/now_playing/widgets/rating_bar.dart';
+import 'package:retropod/features/now_playing/widgets/shuffle_segmented_control.dart';
+import 'package:retropod/features/now_playing/widgets/volume_bar.dart';
+import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
+import 'package:retropod/features/status_bar/widgets/status_bar.dart';
+import 'package:retropod/features/tutorial/controller/tutorial_controller.dart';
 
 enum _NowPlayingBottomBarPage {
   seekBar,

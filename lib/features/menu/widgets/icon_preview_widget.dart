@@ -1,6 +1,6 @@
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/features/menu/models/split_screen_type.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/features/menu/models/split_screen_type.dart';
 
 class IconPreviewWidget extends StatelessWidget {
   final String titleText;

@@ -1,9 +1,9 @@
-import 'package:classipod/features/music/album/providers/album_details_provider.dart';
-import 'package:classipod/features/music/artists/providers/artist_albums_provider.dart';
-import 'package:classipod/features/music/artists/providers/artist_names_provider.dart';
-import 'package:classipod/features/music/search/model/search_model.dart';
-import 'package:classipod/features/music/songs/provider/songs_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/features/music/album/providers/album_details_provider.dart';
+import 'package:retropod/features/music/artists/providers/artist_albums_provider.dart';
+import 'package:retropod/features/music/artists/providers/artist_names_provider.dart';
+import 'package:retropod/features/music/search/model/search_model.dart';
+import 'package:retropod/features/music/songs/provider/songs_provider.dart';
 
 final searchProvider = Provider.autoDispose
     .family<List<SearchResultsModel>, String>((ref, searchQuery) {

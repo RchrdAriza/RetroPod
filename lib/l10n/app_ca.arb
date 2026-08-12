@@ -1,6 +1,6 @@
 {
   "@@locale": "ca",
-  "appTitle": "Classipod",
+  "appTitle": "RetroPod",
   "menuButtonText": "Menú",
   "audioAccessPermissionTitle": "Permís d'accés a l'àudio necessari",
   "audioAccessPermissionContent": "Doneu accés als fitxers d'àudio per permetre'ns reproduir els vostres fitxers de música.",

@@ -2,17 +2,17 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:io';
 
-import 'package:classipod/core/constants/constants.dart';
-import 'package:classipod/core/constants/online_audio_files_metadata.dart';
-import 'package:classipod/core/models/music_metadata.dart';
-import 'package:classipod/core/providers/device_directory_provider.dart';
-import 'package:classipod/core/repositories/metadata_reader_repository.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:retropod/core/constants/constants.dart';
+import 'package:retropod/core/constants/online_audio_files_metadata.dart';
+import 'package:retropod/core/models/music_metadata.dart';
+import 'package:retropod/core/providers/device_directory_provider.dart';
+import 'package:retropod/core/repositories/metadata_reader_repository.dart';
+import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
 
 final audioFilesServiceProvider =
     AsyncNotifierProvider<

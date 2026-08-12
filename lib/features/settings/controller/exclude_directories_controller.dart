@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:classipod/core/constants/constants.dart';
-import 'package:classipod/core/services/audio_files_service.dart';
-import 'package:classipod/features/settings/models/exclude_directory_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
+import 'package:retropod/core/constants/constants.dart';
+import 'package:retropod/core/services/audio_files_service.dart';
+import 'package:retropod/features/settings/models/exclude_directory_model.dart';
 
 final excludedDirectoriesProvider =
     NotifierProvider<ExcludeDirectoryNotifier, List<ExcludeDirectoryModel>>(

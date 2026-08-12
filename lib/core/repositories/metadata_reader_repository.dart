@@ -2,10 +2,10 @@ import 'dart:collection';
 import 'dart:io';
 
 import 'package:audio_metadata_reader/audio_metadata_reader.dart';
-import 'package:classipod/core/models/music_metadata.dart';
-import 'package:classipod/core/providers/device_directory_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/models/music_metadata.dart';
+import 'package:retropod/core/providers/device_directory_provider.dart';
 
 final metadataReaderRepositoryProvider =
     Provider.autoDispose<MetadataReaderRepository>((ref) {
@@ -14,7 +14,7 @@ final metadataReaderRepositoryProvider =
           .requireValue
           .documentsDirectory;
       final thumbnailsDirectoryPath =
-          '${documentsDirectory.path}/ClassiPod/thumbnails';
+          '${documentsDirectory.path}/RetroPod/thumbnails';
       Directory(thumbnailsDirectoryPath).createSync(recursive: true);
       return MetadataReaderRepository(thumbnailsDirectoryPath);
     });

@@ -1,13 +1,13 @@
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/navigation/routes.dart';
-import 'package:classipod/core/widgets/empty_state_widget.dart';
-import 'package:classipod/features/custom_screen_elements/custom_screen.dart';
-import 'package:classipod/features/settings/controller/exclude_directories_controller.dart';
-import 'package:classipod/features/settings/models/exclude_directory_model.dart';
-import 'package:classipod/features/settings/widgets/exclude_directory_tile.dart';
-import 'package:classipod/features/status_bar/widgets/status_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/navigation/routes.dart';
+import 'package:retropod/core/widgets/empty_state_widget.dart';
+import 'package:retropod/features/custom_screen_elements/custom_screen.dart';
+import 'package:retropod/features/settings/controller/exclude_directories_controller.dart';
+import 'package:retropod/features/settings/models/exclude_directory_model.dart';
+import 'package:retropod/features/settings/widgets/exclude_directory_tile.dart';
+import 'package:retropod/features/status_bar/widgets/status_bar.dart';
 
 class ExcludeDirectoriesScreen extends ConsumerStatefulWidget {
   const ExcludeDirectoriesScreen({super.key});

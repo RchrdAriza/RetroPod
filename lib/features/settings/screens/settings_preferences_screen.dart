@@ -1,20 +1,20 @@
 import 'dart:async';
 
-import 'package:classipod/core/constants/constants.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/navigation/routes.dart';
-import 'package:classipod/core/services/audio_player_service.dart';
-import 'package:classipod/features/custom_screen_elements/custom_screen.dart';
-import 'package:classipod/features/menu/controller/split_screen_controller.dart';
-import 'package:classipod/features/menu/models/split_screen_type.dart';
-import 'package:classipod/features/now_playing/provider/now_playing_details_provider.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
-import 'package:classipod/features/settings/models/settings_preferences_model.dart';
-import 'package:classipod/features/settings/widgets/settings_list_tile.dart';
-import 'package:classipod/features/status_bar/widgets/status_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:retropod/core/constants/constants.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/navigation/routes.dart';
+import 'package:retropod/core/services/audio_player_service.dart';
+import 'package:retropod/features/custom_screen_elements/custom_screen.dart';
+import 'package:retropod/features/menu/controller/split_screen_controller.dart';
+import 'package:retropod/features/menu/models/split_screen_type.dart';
+import 'package:retropod/features/now_playing/provider/now_playing_details_provider.dart';
+import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
+import 'package:retropod/features/settings/models/settings_preferences_model.dart';
+import 'package:retropod/features/settings/widgets/settings_list_tile.dart';
+import 'package:retropod/features/status_bar/widgets/status_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 enum _SettingsDisplayItems {

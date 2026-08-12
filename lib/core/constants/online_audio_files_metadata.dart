@@ -1,4 +1,4 @@
-import 'package:classipod/core/models/music_metadata.dart';
+import 'package:retropod/core/models/music_metadata.dart';
 
 final List<MusicMetadata> onlineDemoAudioFilesMetaData = [
   MusicMetadata(
@@ -15,9 +15,9 @@ final List<MusicMetadata> onlineDemoAudioFilesMetaData = [
     originalSongIndex: 1,
     isOnDevice: false,
     filePath:
-        "https://raw.githubusercontent.com/adeeteya/Classipod/master/test/test_files/mp3/Faded.mp3",
+        "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/mp3/Faded.mp3",
     thumbnailPath:
-        "https://raw.githubusercontent.com/adeeteya/Classipod/master/test/test_files/ClassiPod/thumbnails/FadedbyAlanWalker.jpg",
+        "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/RetroPod/thumbnails/FadedbyAlanWalker.jpg",
   ),
   MusicMetadata(
     trackName: "Spectre",
@@ -35,9 +35,9 @@ final List<MusicMetadata> onlineDemoAudioFilesMetaData = [
     originalSongIndex: 2,
     isOnDevice: false,
     filePath:
-        "https://raw.githubusercontent.com/adeeteya/Classipod/master/test/test_files/opus/Spectre.opus",
+        "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/opus/Spectre.opus",
     thumbnailPath:
-        "https://raw.githubusercontent.com/adeeteya/Classipod/master/test/test_files/ClassiPod/thumbnails/SpectrebyAlanWalker.jpg",
+        "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/RetroPod/thumbnails/SpectrebyAlanWalker.jpg",
   ),
   MusicMetadata(
     trackName: "Firefly",
@@ -54,9 +54,9 @@ final List<MusicMetadata> onlineDemoAudioFilesMetaData = [
     originalSongIndex: 3,
     isOnDevice: false,
     filePath:
-        "https://raw.githubusercontent.com/adeeteya/Classipod/master/test/test_files/ogg/Firefly.ogg",
+        "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/ogg/Firefly.ogg",
     thumbnailPath:
-        "https://raw.githubusercontent.com/adeeteya/Classipod/master/test/test_files/ClassiPod/thumbnails/FireflybyJimYosef.jpg",
+        "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/RetroPod/thumbnails/FireflybyJimYosef.jpg",
   ),
   MusicMetadata(
     trackName: "On & On",
@@ -73,8 +73,8 @@ final List<MusicMetadata> onlineDemoAudioFilesMetaData = [
     originalSongIndex: 4,
     isOnDevice: false,
     filePath:
-        "https://raw.githubusercontent.com/adeeteya/Classipod/master/test/test_files/m4a/On&On.m4a",
+        "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/m4a/On&On.m4a",
     thumbnailPath:
-        "https://raw.githubusercontent.com/adeeteya/Classipod/master/test/test_files/ClassiPod/thumbnails/On&OnbyCartoon&DanielLevi.jpg",
+        "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/RetroPod/thumbnails/On&OnbyCartoon&DanielLevi.jpg",
   ),
 ];

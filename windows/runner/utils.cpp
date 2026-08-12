@@ -8,7 +8,7 @@
 #include <iostream>
 
 namespace {
-    constexpr wchar_t kWindowSizeRegistryKey[] = L"Software\\ClassiPod";
+    constexpr wchar_t kWindowSizeRegistryKey[] = L"Software\\RetroPod";
     constexpr wchar_t kWindowWidthValueName[] = L"WindowWidth";
     constexpr wchar_t kWindowHeightValueName[] = L"WindowHeight";
     constexpr wchar_t kWindowSizeIsLogicalValueName[] = L"WindowSizeIsLogical";

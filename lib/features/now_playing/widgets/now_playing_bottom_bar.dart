@@ -1,9 +1,9 @@
-import 'package:classipod/core/services/audio_player_service.dart';
-import 'package:classipod/features/now_playing/provider/now_playing_details_provider.dart';
-import 'package:classipod/features/now_playing/widgets/scrubber_bar.dart';
-import 'package:classipod/features/now_playing/widgets/seek_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/services/audio_player_service.dart';
+import 'package:retropod/features/now_playing/provider/now_playing_details_provider.dart';
+import 'package:retropod/features/now_playing/widgets/scrubber_bar.dart';
+import 'package:retropod/features/now_playing/widgets/seek_bar.dart';
 
 class NowPlayingBottomBar extends ConsumerWidget {
   final bool showScrubber;

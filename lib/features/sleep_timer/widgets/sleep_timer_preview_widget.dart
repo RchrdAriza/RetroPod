@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/extensions/duration_extensions.dart';
-import 'package:classipod/features/menu/models/split_screen_type.dart';
-import 'package:classipod/features/sleep_timer/models/sleep_timer_model.dart';
-import 'package:classipod/features/sleep_timer/provider/sleep_timer_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/extensions/duration_extensions.dart';
+import 'package:retropod/features/menu/models/split_screen_type.dart';
+import 'package:retropod/features/sleep_timer/models/sleep_timer_model.dart';
+import 'package:retropod/features/sleep_timer/provider/sleep_timer_provider.dart';
 
 class SleepTimerPreviewWidget extends ConsumerStatefulWidget {
   const SleepTimerPreviewWidget({super.key});

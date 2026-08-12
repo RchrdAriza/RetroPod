@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/core/constants/assets.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/core/constants/assets.dart';
 
 class AlbumReflectiveArt extends StatefulWidget {
   final String? thumbnailPath;

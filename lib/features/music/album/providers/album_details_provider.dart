@@ -1,8 +1,8 @@
-import 'package:classipod/core/models/music_metadata.dart';
-import 'package:classipod/core/providers/filtered_audio_files_provider.dart';
-import 'package:classipod/core/utils/artist_name_utils.dart';
-import 'package:classipod/features/music/album/models/album_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/models/music_metadata.dart';
+import 'package:retropod/core/providers/filtered_audio_files_provider.dart';
+import 'package:retropod/core/utils/artist_name_utils.dart';
+import 'package:retropod/features/music/album/models/album_model.dart';
 
 final albumDetailsProvider = Provider<List<AlbumModel>>((ref) {
   final metadataList = ref.read(filteredAudioFilesProvider).requireValue;

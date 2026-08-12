@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- `lib/` holds app code: `core/` for shared services, `features/` for UI flows, `hive/` for adapters, and entry points in `main.dart`, `main_development.dart`, and `classipod_app.dart`.
+- `lib/` holds app code: `core/` for shared services, `features/` for UI flows, `hive/` for adapters, and entry points in `main.dart`, `main_development.dart`, and `retropod_app.dart`.
 - Platform scaffolding lives in `android/`, `ios/`, `linux/`, `macos/`, `windows/`, and `web/`; assets and fonts sit in `assets/`; automation scripts live in `fastlane/` and `scripts/`.
 - Tests mirror production code under `test/unit_tests/` and `test/widget_tests/`, with reusable fixtures in `test/test_files/` and caches in `test/cache/`.
 

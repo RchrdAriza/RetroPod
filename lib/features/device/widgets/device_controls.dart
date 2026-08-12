@@ -1,22 +1,22 @@
 import 'dart:async';
 
-import 'package:classipod/core/constants/assets.dart';
-import 'package:classipod/core/constants/constants.dart';
-import 'package:classipod/core/constants/keys.dart';
-import 'package:classipod/core/custom_painter/next_button_custom_painter.dart';
-import 'package:classipod/core/custom_painter/play_pause_button_custom_painter.dart';
-import 'package:classipod/core/custom_painter/previous_button_custom_painter.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/navigation/routes.dart';
-import 'package:classipod/features/device/models/device_action.dart';
-import 'package:classipod/features/device/services/device_buttons_service_provider.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
-import 'package:classipod/features/settings/models/click_wheel_sensitivity.dart';
-import 'package:classipod/features/settings/models/click_wheel_size.dart';
-import 'package:classipod/features/settings/models/device_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:retropod/core/constants/assets.dart';
+import 'package:retropod/core/constants/constants.dart';
+import 'package:retropod/core/constants/keys.dart';
+import 'package:retropod/core/custom_painter/next_button_custom_painter.dart';
+import 'package:retropod/core/custom_painter/play_pause_button_custom_painter.dart';
+import 'package:retropod/core/custom_painter/previous_button_custom_painter.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/navigation/routes.dart';
+import 'package:retropod/features/device/models/device_action.dart';
+import 'package:retropod/features/device/services/device_buttons_service_provider.dart';
+import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
+import 'package:retropod/features/settings/models/click_wheel_sensitivity.dart';
+import 'package:retropod/features/settings/models/click_wheel_size.dart';
+import 'package:retropod/features/settings/models/device_color.dart';
 
 class DeviceControls extends ConsumerStatefulWidget {
   const DeviceControls({super.key});

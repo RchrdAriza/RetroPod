@@ -1,10 +1,10 @@
-# ClassiPod Project Overview
+# RetroPod Project Overview
 
-This document provides a comprehensive overview of the ClassiPod project, including its purpose, architecture, and development conventions.
+This document provides a comprehensive overview of the RetroPod project, including its purpose, architecture, and development conventions.
 
 ## Project Overview
 
-ClassiPod is a local music player app designed to emulate the nostalgic experience of the iPod Classic. It features a click wheel interface and focuses on providing a simple, distraction-free music listening experience. The app is built with Flutter and supports Android, iOS, Linux, macOS, Windows, and web.
+RetroPod is a local music player app designed to emulate the nostalgic experience of the iPod Classic. It features a click wheel interface and focuses on providing a simple, distraction-free music listening experience. The app is built with Flutter and supports Android, iOS, Linux, macOS, Windows, and web.
 
 ### Key Technologies
 
@@ -22,7 +22,7 @@ To build and run the project, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/adeeteya/Classipod.git
+    git clone https://github.com/RchrdAriza/RetroPod.git
     ```
 2.  **Install dependencies:**
     ```bash

@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:classipod/core/alerts/dialogs.dart';
-import 'package:classipod/core/constants/keys.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/providers/battery_optimization_provider.dart';
-import 'package:classipod/features/tutorial/models/tutorial_model.dart';
-import 'package:classipod/features/tutorial/repository/tutorial_repository.dart';
-import 'package:classipod/features/tutorial/widgets/tutorial_view_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/alerts/dialogs.dart';
+import 'package:retropod/core/constants/keys.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/providers/battery_optimization_provider.dart';
+import 'package:retropod/features/tutorial/models/tutorial_model.dart';
+import 'package:retropod/features/tutorial/repository/tutorial_repository.dart';
+import 'package:retropod/features/tutorial/widgets/tutorial_view_widget.dart';
 
 final tutorialControllerProvider =
     NotifierProvider<TutorialControllerNotifier, TutorialModel>(

@@ -1,15 +1,15 @@
 import 'dart:async';
 
-import 'package:classipod/core/models/music_metadata.dart';
-import 'package:classipod/core/providers/filtered_audio_files_provider.dart';
-import 'package:classipod/features/music/album/models/album_model.dart';
-import 'package:classipod/features/music/playlist/models/playlist_model.dart';
-import 'package:classipod/features/now_playing/models/now_playing_model.dart';
-import 'package:classipod/features/now_playing/provider/now_playing_details_provider.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:retropod/core/models/music_metadata.dart';
+import 'package:retropod/core/providers/filtered_audio_files_provider.dart';
+import 'package:retropod/features/music/album/models/album_model.dart';
+import 'package:retropod/features/music/playlist/models/playlist_model.dart';
+import 'package:retropod/features/now_playing/models/now_playing_model.dart';
+import 'package:retropod/features/now_playing/provider/now_playing_details_provider.dart';
+import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
 
 final audioPlayerProvider = Provider<AudioPlayer>((_) {
   return AudioPlayer();

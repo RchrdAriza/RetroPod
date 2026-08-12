@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:classipod/core/services/audio_player_service.dart';
-import 'package:classipod/features/sleep_timer/models/sleep_timer_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:retropod/core/services/audio_player_service.dart';
+import 'package:retropod/features/sleep_timer/models/sleep_timer_model.dart';
 
 typedef SleepTimerClock = DateTime Function();
 typedef SleepTimerScheduler =

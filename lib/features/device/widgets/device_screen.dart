@@ -1,8 +1,8 @@
-import 'package:classipod/core/constants/constants.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/constants/constants.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
 
 class DeviceScreen extends ConsumerWidget {
   final Widget child;

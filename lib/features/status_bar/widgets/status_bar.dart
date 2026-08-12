@@ -1,8 +1,8 @@
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/features/now_playing/provider/now_playing_details_provider.dart';
-import 'package:classipod/features/status_bar/widgets/battery_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/features/now_playing/provider/now_playing_details_provider.dart';
+import 'package:retropod/features/status_bar/widgets/battery_indicator.dart';
 
 class StatusBar extends StatelessWidget {
   final String title;

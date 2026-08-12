@@ -1,5 +1,5 @@
-import 'package:classipod/core/models/music_metadata.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
+import 'package:retropod/core/models/music_metadata.dart';
 
 class PlaylistModel extends HiveObject {
   String name;

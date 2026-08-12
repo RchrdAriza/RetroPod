@@ -95,16 +95,16 @@ platform :android do
         version_number: options[:version_number]
       )
 
-      File.rename("#{root_path}/build/app/outputs/flutter-apk/app-production-release.apk", "#{root_path}/build/app/outputs/flutter-apk/Classipod-Android.apk")
+      File.rename("#{root_path}/build/app/outputs/flutter-apk/app-production-release.apk", "#{root_path}/build/app/outputs/flutter-apk/RetroPod-Android.apk")
 
       # set_github_release(
-      #   repository_name: "adeeteya/Classipod",
+      #   repository_name: "RchrdAriza/RetroPod",
       #   api_token: ENV["GH_TOKEN"],
       #   name: options[:version_number],
       #   tag_name: options[:version_number],
       #   is_generate_release_notes: true,
       #   commitish: "master",
-      #   upload_assets: ["#{root_path}/build/app/outputs/flutter-apk/Classipod-Android.apk"]
+      #   upload_assets: ["#{root_path}/build/app/outputs/flutter-apk/RetroPod-Android.apk"]
       # )
     end
   end

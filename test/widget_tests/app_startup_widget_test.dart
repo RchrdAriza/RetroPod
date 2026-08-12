@@ -2,18 +2,18 @@
 
 import 'dart:io';
 
-import 'package:classipod/classipod_app.dart';
-import 'package:classipod/core/models/device_directory.dart';
-import 'package:classipod/core/providers/device_directory_provider.dart';
-import 'package:classipod/core/providers/shared_preferences_with_cache_provider.dart';
-import 'package:classipod/features/app_startup/controllers/app_startup_controller.dart';
-import 'package:classipod/features/app_startup/screens/app_startup_screen.dart';
-import 'package:classipod/features/app_startup/screens/splash_screen.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:retropod/core/models/device_directory.dart';
+import 'package:retropod/core/providers/device_directory_provider.dart';
+import 'package:retropod/core/providers/shared_preferences_with_cache_provider.dart';
+import 'package:retropod/features/app_startup/controllers/app_startup_controller.dart';
+import 'package:retropod/features/app_startup/screens/app_startup_screen.dart';
+import 'package:retropod/features/app_startup/screens/splash_screen.dart';
+import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
+import 'package:retropod/retropod_app.dart';
 import 'package:shared_preferences_platform_interface/in_memory_shared_preferences_async.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_async_platform_interface.dart';
 
@@ -55,7 +55,7 @@ void main() {
     await tester.pumpWidget(
       UncontrolledProviderScope(
         container: providerContainer,
-        child: const AppStartupScreen(app: ClassipodApp()),
+        child: const AppStartupScreen(app: RetropodApp()),
       ),
     );
     expect(find.byType(CupertinoActivityIndicator), findsOne);
@@ -66,7 +66,7 @@ void main() {
     await tester.pumpWidget(
       UncontrolledProviderScope(
         container: providerContainer,
-        child: const AppStartupScreen(app: ClassipodApp()),
+        child: const AppStartupScreen(app: RetropodApp()),
       ),
     );
     await tester.pumpAndSettle();
@@ -81,7 +81,7 @@ void main() {
             (_) => throw Exception('Test Exception'),
           ),
         ],
-        child: const AppStartupScreen(app: ClassipodApp()),
+        child: const AppStartupScreen(app: RetropodApp()),
       ),
     );
     await tester.pumpAndSettle();

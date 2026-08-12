@@ -13,4 +13,4 @@
 
 ## Reporting a Vulnerability
 
-Either mail to me at adeeteya@gmail.com or open a [Issue](https://www.github.com/Classipod/issues)
+Either mail to me at adeeteya@gmail.com or open a [Issue](https://www.github.com/RetroPod/issues)

@@ -1,7 +1,7 @@
-import 'package:classipod/core/constants/app_color_scheme.dart';
-import 'package:classipod/l10n/generated/app_localizations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:retropod/core/constants/app_color_scheme.dart';
+import 'package:retropod/l10n/generated/app_localizations.dart';
 
 extension BuildContextExtensions on BuildContext {
   Size get screenSize {

@@ -1,14 +1,14 @@
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/core/models/music_metadata.dart';
-import 'package:classipod/core/navigation/routes.dart';
-import 'package:classipod/core/services/audio_player_service.dart';
-import 'package:classipod/features/custom_screen_elements/custom_screen.dart';
-import 'package:classipod/features/music/album/models/album_model.dart';
-import 'package:classipod/features/music/cover_flow/widgets/cover_flow_album_song_list_tile.dart';
-import 'package:classipod/features/now_playing/provider/now_playing_details_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/core/models/music_metadata.dart';
+import 'package:retropod/core/navigation/routes.dart';
+import 'package:retropod/core/services/audio_player_service.dart';
+import 'package:retropod/features/custom_screen_elements/custom_screen.dart';
+import 'package:retropod/features/music/album/models/album_model.dart';
+import 'package:retropod/features/music/cover_flow/widgets/cover_flow_album_song_list_tile.dart';
+import 'package:retropod/features/now_playing/provider/now_playing_details_provider.dart';
 
 class CoverFlowAlbumSelectionScreen extends ConsumerStatefulWidget {
   final AlbumModel albumDetail;

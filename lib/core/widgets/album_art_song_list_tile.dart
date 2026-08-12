@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/core/constants/assets.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/models/music_metadata.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/core/constants/assets.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/models/music_metadata.dart';
 
 class AlbumArtSongListTile extends StatelessWidget {
   final MusicMetadata songMetadata;

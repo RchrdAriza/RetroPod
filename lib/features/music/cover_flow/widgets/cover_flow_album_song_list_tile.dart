@@ -1,8 +1,8 @@
-import 'package:classipod/core/constants/app_palette.dart';
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/extensions/duration_extensions.dart';
-import 'package:classipod/core/widgets/marquee_text.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:retropod/core/constants/app_palette.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/extensions/duration_extensions.dart';
+import 'package:retropod/core/widgets/marquee_text.dart';
 
 class CoverFlowAlbumSongListTile extends StatelessWidget {
   final String songName;

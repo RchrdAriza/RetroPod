@@ -1,6 +1,6 @@
 {
   "@@locale": "bg",
-  "appTitle": "Classipod",
+  "appTitle": "RetroPod",
   "menuButtonText": "Меню",
   "audioAccessPermissionTitle": "Необходимо е разрешение за достъп до аудио",
   "audioAccessPermissionContent": "Моля, предоставете достъп до аудио файлове, за да ни позволи да възпроизвеждаме вашите музикални файлове.",

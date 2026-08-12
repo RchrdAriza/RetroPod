@@ -1,11 +1,11 @@
-icon: snap/gui/classipod.png
+icon: snap/gui/retropod.png
 summary: Local Music Player Inspired by the iPod Classic
 group: Applications/Multimedia
 vendor: adeeteya
 packager: Aditya R
 packagerEmail: adeeteya@gmail.com
 license: BSD-4-Clause
-url: https://github.com/adeeteya/Classipod
+url: https://github.com/RchrdAriza/RetroPod
 requires:
   - mpv
   - mpv-libs
@@ -28,7 +28,7 @@ requires:
   - xdg-utils
   - ca-certificates
 
-display_name: Classipod
+display_name: RetroPod
 
 keywords:
   - Music

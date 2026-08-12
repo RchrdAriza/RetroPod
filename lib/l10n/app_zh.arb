@@ -1,6 +1,6 @@
 {
   "@@locale": "zh",
-  "appTitle": "classipod",
+  "appTitle": "RetroPod",
   "menuButtonText": "菜单",
   "audioAccessPermissionTitle": "需要音频访问权限",
   "audioAccessPermissionContent": "请授予音频文件访问权限，以允许我们播放您的音乐文件。",

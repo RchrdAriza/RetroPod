@@ -1,12 +1,12 @@
-import 'package:classipod/core/extensions/locale_extensions.dart';
-import 'package:classipod/core/navigation/routes.dart';
-import 'package:classipod/core/widgets/display_list_tile.dart';
-import 'package:classipod/features/custom_screen_elements/custom_screen.dart';
-import 'package:classipod/features/settings/controller/settings_preferences_controller.dart';
-import 'package:classipod/features/status_bar/widgets/status_bar.dart';
-import 'package:classipod/l10n/generated/app_localizations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:retropod/core/extensions/locale_extensions.dart';
+import 'package:retropod/core/navigation/routes.dart';
+import 'package:retropod/core/widgets/display_list_tile.dart';
+import 'package:retropod/features/custom_screen_elements/custom_screen.dart';
+import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
+import 'package:retropod/features/status_bar/widgets/status_bar.dart';
+import 'package:retropod/l10n/generated/app_localizations.dart';
 
 class LanguageSelectionScreen extends ConsumerStatefulWidget {
   const LanguageSelectionScreen({super.key});

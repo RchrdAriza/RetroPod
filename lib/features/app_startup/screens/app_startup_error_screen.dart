@@ -1,5 +1,5 @@
-import 'package:classipod/l10n/generated/app_localizations.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:retropod/l10n/generated/app_localizations.dart';
 
 class AppStartupError extends StatelessWidget {
   final Object error;

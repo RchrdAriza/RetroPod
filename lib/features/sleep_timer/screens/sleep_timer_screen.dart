@@ -1,17 +1,17 @@
-import 'package:classipod/core/extensions/build_context_extensions.dart';
-import 'package:classipod/core/navigation/routes.dart';
-import 'package:classipod/core/widgets/options_list_tile.dart';
-import 'package:classipod/features/custom_screen_elements/custom_screen.dart';
-import 'package:classipod/features/device/services/device_buttons_service_provider.dart';
-import 'package:classipod/features/menu/controller/split_screen_controller.dart';
-import 'package:classipod/features/menu/models/split_screen_type.dart';
-import 'package:classipod/features/now_playing/provider/now_playing_details_provider.dart';
-import 'package:classipod/features/sleep_timer/models/sleep_timer_model.dart';
-import 'package:classipod/features/sleep_timer/provider/sleep_timer_provider.dart';
-import 'package:classipod/features/status_bar/widgets/status_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:retropod/core/extensions/build_context_extensions.dart';
+import 'package:retropod/core/navigation/routes.dart';
+import 'package:retropod/core/widgets/options_list_tile.dart';
+import 'package:retropod/features/custom_screen_elements/custom_screen.dart';
+import 'package:retropod/features/device/services/device_buttons_service_provider.dart';
+import 'package:retropod/features/menu/controller/split_screen_controller.dart';
+import 'package:retropod/features/menu/models/split_screen_type.dart';
+import 'package:retropod/features/now_playing/provider/now_playing_details_provider.dart';
+import 'package:retropod/features/sleep_timer/models/sleep_timer_model.dart';
+import 'package:retropod/features/sleep_timer/provider/sleep_timer_provider.dart';
+import 'package:retropod/features/status_bar/widgets/status_bar.dart';
 
 enum _SleepTimerOption {
   off,

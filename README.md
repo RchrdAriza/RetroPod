@@ -1,12 +1,12 @@
 <div align="center">
 
-# 🎵 ClassiPod
+# 🎵 RetroPod
 
-![Classipod App Screenshots](screenshots/combined.jpg)
+![RetroPod App Screenshots](screenshots/combined.jpg)
 
-Introducing "ClassiPod" – Your Timeless Audio Experience
+Introducing "RetroPod" – Your Timeless Audio Experience
 
-Step back in time with ClassiPod, a local music player app designed to capture the nostalgic essence
+Step back in time with RetroPod, a local music player app designed to capture the nostalgic essence
 of the iconic iPod Classic. Immerse yourself in the familiar click wheel interface and relive the
 joy of navigating your music library with a touch of retro charm.
 
@@ -16,27 +16,27 @@ joy of navigating your music library with a touch of retro charm.
 wheel. Scroll, click, and feel the tactile response as you rediscover the joy of selecting your
 favorite tracks with the same ease as the original iPod.
 
-🗃️ Local Music Library: ClassiPod is focused on your locally stored music files, ensuring that your
+🗃️ Local Music Library: RetroPod is focused on your locally stored music files, ensuring that your
 personal music collection takes center stage. Organize your tracks, albums, and playlists just like
 you did on your trusty iPod Classic.
 
-🖌️ Customizable Themes: Personalize your ClassiPod experience with the option of silver or grey
+🖌️ Customizable Themes: Personalize your RetroPod experience with the option of silver or grey
 device frame. Choose from the two different color schemes to tailor the app's appearance to your
 unique style.
 
 🖼️ Cover Art Display: Immerse yourself in your music by appreciating album artwork on the vibrant
-display. ClassiPod pays homage to the visual appeal of classic iPods by showcasing your favorite
+display. RetroPod pays homage to the visual appeal of classic iPods by showcasing your favorite
 album covers in a retro-inspired format.
 
-🎼 No Frills, Just Music: ClassiPod stays true to the essence of a music player – no distractions, no
+🎼 No Frills, Just Music: RetroPod stays true to the essence of a music player – no distractions, no
 unnecessary features. Focus solely on the joy of listening to your favorite tunes without the
 complexities of a modern streaming service.
 
-🎧 Offline Listening: Enjoy your music without relying on an internet connection. ClassiPod is
+🎧 Offline Listening: Enjoy your music without relying on an internet connection. RetroPod is
 perfect for those moments when you want to disconnect and savor the tunes stored locally on your
 device.
 
-Relive the magic of the iPod Classic with ClassiPod – where timeless design meets the convenience of
+Relive the magic of the iPod Classic with RetroPod – where timeless design meets the convenience of
 today. Download now and embark on a journey down memory lane with your music in the palm of your
 hand.
 
@@ -80,7 +80,7 @@ If you like what you see, please ⭐ the repo.
 
 ### 🎵 Supported audio formats
 
-ClassiPod imports a format when its metadata can be read and at least one
+RetroPod imports a format when its metadata can be read and at least one
 configured playback backend can play it. Playback availability therefore varies
 by platform:
 
@@ -112,15 +112,15 @@ by platform:
   <tr>
     <td>Android</td>
     <td>
-      <a href="https://play.google.com/store/apps/details?id=com.adeeteya.classipod">
+      <a href="https://play.google.com/store/apps/details?id=com.rchrdariza.retropod">
         <img height="80" alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png">
       </a>
       <br>
-      <a href="https://f-droid.org/packages/com.adeeteya.classipod">
+      <a href="https://f-droid.org/packages/com.rchrdariza.retropod">
         <img height="80" alt="Get it on F-Droid" src="https://f-droid.org/badge/get-it-on.png">
       </a>
       <br>
-      <a href="https://github.com/adeeteya/Classipod/releases/latest/download/Classipod-Android.apk">
+      <a href="https://github.com/RchrdAriza/RetroPod/releases/latest/download/RetroPod-Android.apk">
         <img alt="APK download" src="https://img.shields.io/static/v1?label=Download&message=Android+.apk&color=2ea44f&style=for-the-badge&logo=Android&logoColor=white&logoSize=auto">
       </a>
     </td>
@@ -129,17 +129,17 @@ by platform:
   <tr>
       <td>Linux</td>
       <td>
-        <a href="https://github.com/adeeteya/Classipod/releases/latest/download/Classipod-Linux-AppImage.AppImage">
+        <a href="https://github.com/RchrdAriza/RetroPod/releases/latest/download/RetroPod-Linux-AppImage.AppImage">
           <img alt="Download .AppImage" src="https://img.shields.io/static/v1?label=Download&message=.AppImage&color=FCC624&style=for-the-badge&logo=linux&logoColor=white&logoSize=auto">
         </a>
         <br>
         <br>
-        <a href="https://github.com/adeeteya/Classipod/releases/latest/download/Classipod-Linux-deb.deb">
+        <a href="https://github.com/RchrdAriza/RetroPod/releases/latest/download/RetroPod-Linux-deb.deb">
           <img alt="Download .deb" src="https://img.shields.io/static/v1?label=Download&message=%20%20%20%20%20.deb&color=A81D33&style=for-the-badge&logo=debian&logoColor=white&logoSize=auto">
         </a>
         <br>
         <br>
-        <a href="https://github.com/adeeteya/Classipod/releases/latest/download/Classipod-Linux-rpm.rpm">
+        <a href="https://github.com/RchrdAriza/RetroPod/releases/latest/download/RetroPod-Linux-rpm.rpm">
           <img alt="Download .rpm" src="https://img.shields.io/static/v1?label=Download&message=.rpm&color=EE0000&style=for-the-badge&logo=redhat&logoColor=white&logoSize=auto">
         </a>
       </td>
@@ -148,7 +148,7 @@ by platform:
   <tr>
       <td>Windows</td>
       <td>
-        <a href="https://github.com/adeeteya/Classipod/releases/latest/download/Classipod-Windows.exe">
+        <a href="https://github.com/RchrdAriza/RetroPod/releases/latest/download/RetroPod-Windows.exe">
           <img alt="Download Windows Installer" src="https://img.shields.io/static/v1?label=Download&message=Windows+.exe&color=blue&style=for-the-badge&logo=webtrees&logoColor=white&logoSize=auto">
         </a>
       </td>
@@ -157,7 +157,7 @@ by platform:
   <tr>
       <td>Web App</td>
       <td>
-        <a href="https://adeeteya.github.io/Classipod/#/">
+        <a href="https://RchrdAriza.github.io/RetroPod/#/">
           <img alt="Web App" src="https://img.shields.io/static/v1?label=Webapp&message=Visit+Website&color=blueviolet&style=for-the-badge&logo=googlechrome&logoColor=white&logoSize=auto">
         </a>
       </td>
@@ -210,7 +210,7 @@ by platform:
 ## 🔖 LICENCE
 
 Copyright (c) 2025 Aditya R
-[BSD-4-Clause LICENCE](https://github.com/adeeteya/Classipod/blob/master/LICENSE)
+[BSD-4-Clause LICENCE](https://github.com/RchrdAriza/RetroPod/blob/master/LICENSE)
 
 ## 🙏 Attributions
 

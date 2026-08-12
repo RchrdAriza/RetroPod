@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:classipod/core/constants/app_palette.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:retropod/core/constants/app_palette.dart';
 
 class MarqueeText extends StatefulWidget {
   const MarqueeText(
