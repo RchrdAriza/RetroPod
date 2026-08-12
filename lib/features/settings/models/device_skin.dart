@@ -5,7 +5,10 @@ enum DeviceSkin {
   classic,
   clearTech,
   clearTechCase,
-  clearTechPurpleCase;
+  clearTechPurpleCase,
+  glassCase,
+  sticker1Case,
+  sticker2Case;
 
   static DeviceSkin fromName(String raw) {
     try {
@@ -25,6 +28,12 @@ enum DeviceSkin {
         return 'Clear Tech Case';
       case clearTechPurpleCase:
         return 'Clear Tech Purple';
+      case glassCase:
+        return 'Glass Case';
+      case sticker1Case:
+        return 'Stickers 1';
+      case sticker2Case:
+        return 'Stickers 2';
     }
   }
 
@@ -39,6 +48,12 @@ enum DeviceSkin {
         return Assets.clearTechCaseSkin;
       case clearTechPurpleCase:
         return Assets.clearTechPurpleCaseSkin;
+      case glassCase:
+        return Assets.glassCaseSkin;
+      case sticker1Case:
+        return Assets.sticker1Skin;
+      case sticker2Case:
+        return Assets.sticker2Skin;
     }
   }
 
@@ -49,6 +64,9 @@ enum DeviceSkin {
     switch (this) {
       case clearTechCase:
       case clearTechPurpleCase:
+      case sticker1Case:
+      case sticker2Case:
+      case glassCase:
         return BoxFit.fill;
       default:
         return BoxFit.cover;
