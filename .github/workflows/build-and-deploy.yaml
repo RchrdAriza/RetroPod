@@ -193,6 +193,6 @@ jobs:
           options: '{ "version_number": "${{ inputs.version_number }}" }'
       
       - name: Upload APK Artifact to GitHub Release
-        run:  gh release upload ${{ inputs.version_number }} build/app/outputs/flutter-apk/Classipod-Android.apk
+        run:  gh release upload ${{ inputs.version_number }} build/app/outputs/flutter-apk/RetroPod-Android.apk
         env:
           GH_TOKEN: ${{ github.token }}
