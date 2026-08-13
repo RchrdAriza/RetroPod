@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'dart:io';
+import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,7 +33,9 @@ class _PhotoViewerScreenState extends ConsumerState<PhotoViewerScreen> {
   @override
   void initState() {
     super.initState();
-    _currentIndex = widget.initialIndex;
+    _currentIndex = widget.photos.isEmpty
+        ? 0
+        : widget.initialIndex.clamp(0, widget.photos.length - 1);
     _pageController = PageController(initialPage: _currentIndex);
     ref.listenManual(deviceButtonsServiceProvider, _onDeviceAction);
   }
@@ -86,31 +90,36 @@ class _PhotoViewerScreenState extends ConsumerState<PhotoViewerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.photos.isEmpty) {
+      return const CupertinoPageScaffold(
+        child: Column(
+          children: [
+            StatusBar(title: ''),
+            Expanded(
+              child: Center(
+                child: Icon(
+                  CupertinoIcons.photo,
+                  size: 48,
+                  color: CupertinoColors.systemGrey,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
     final photo = widget.photos[_currentIndex];
     return CupertinoPageScaffold(
       child: Column(
         children: [
-          StatusBar(
-            title:
-                '${_currentIndex + 1} / ${widget.photos.length}',
-          ),
+          StatusBar(title: '${_currentIndex + 1} / ${widget.photos.length}'),
           Expanded(
             child: PageView.builder(
               controller: _pageController,
               itemCount: widget.photos.length,
               onPageChanged: (i) => setState(() => _currentIndex = i),
               itemBuilder: (context, index) {
-                return Image.file(
-                  File(widget.photos[index].path),
-                  fit: BoxFit.contain,
-                  errorBuilder: (_, _, _) => const Center(
-                    child: Icon(
-                      CupertinoIcons.photo,
-                      size: 48,
-                      color: CupertinoColors.systemGrey,
-                    ),
-                  ),
-                );
+                return _ZoomablePhoto(path: widget.photos[index].path);
               },
             ),
           ),
@@ -132,6 +141,107 @@ class _PhotoViewerScreenState extends ConsumerState<PhotoViewerScreen> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _ZoomablePhoto extends StatefulWidget {
+  final String path;
+
+  const _ZoomablePhoto({required this.path});
+
+  @override
+  State<_ZoomablePhoto> createState() => _ZoomablePhotoState();
+}
+
+class _ZoomablePhotoState extends State<_ZoomablePhoto>
+    with SingleTickerProviderStateMixin {
+  final TransformationController _controller = TransformationController();
+  AnimationController? _zoomAnimation;
+  bool _isZoomed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(_onTransformationChanged);
+  }
+
+  void _onTransformationChanged() {
+    final scale = _controller.value.getMaxScaleOnAxis();
+    final zoomed = scale > 1.001;
+    if (zoomed != _isZoomed) setState(() => _isZoomed = zoomed);
+  }
+
+  void _handleDoubleTap() {
+    final scale = _controller.value.getMaxScaleOnAxis();
+    _animateZoom(scale > 1.2 ? 1.0 : 3.0);
+  }
+
+  void _animateZoom(double targetScale) {
+    final size = context.size;
+    if (size == null) return;
+    final center = Offset(size.width / 2, size.height / 2);
+    final end = Matrix4.identity()
+      ..translateByDouble(center.dx, center.dy, 0, 1)
+      ..scaleByDouble(targetScale, targetScale, 1, 1)
+      ..translateByDouble(-center.dx, -center.dy, 0, 1);
+    _zoomAnimation?.dispose();
+    final animation = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 250),
+    );
+    _zoomAnimation = animation;
+    final tween = Matrix4Tween(
+      begin: _controller.value,
+      end: end,
+    ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic));
+    animation.addListener(() => _controller.value = tween.value);
+    unawaited(animation.forward());
+  }
+
+  @override
+  void dispose() {
+    _zoomAnimation?.dispose();
+    _controller.removeListener(_onTransformationChanged);
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        ImageFiltered(
+          imageFilter: ImageFilter.blur(sigmaX: 28, sigmaY: 28),
+          child: Image.file(
+            File(widget.path),
+            fit: BoxFit.cover,
+            errorBuilder: (_, _, _) =>
+                const ColoredBox(color: CupertinoColors.black),
+          ),
+        ),
+        GestureDetector(
+          onDoubleTap: _handleDoubleTap,
+          child: InteractiveViewer(
+            transformationController: _controller,
+            minScale: 1.0,
+            maxScale: 5.0,
+            panEnabled: _isZoomed,
+            child: Image.file(
+              File(widget.path),
+              fit: BoxFit.contain,
+              errorBuilder: (_, _, _) => const Center(
+                child: Icon(
+                  CupertinoIcons.photo,
+                  size: 48,
+                  color: CupertinoColors.systemGrey,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

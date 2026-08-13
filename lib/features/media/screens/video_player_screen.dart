@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -122,6 +123,25 @@ class _VideoPlayerScreenState extends ConsumerState<VideoPlayerScreen> {
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
+                        // Blurred background
+                        Positioned.fill(
+                          child: ClipRect(
+                            child: ImageFiltered(
+                              imageFilter: ImageFilter.blur(
+                                sigmaX: 28,
+                                sigmaY: 28,
+                              ),
+                              child: FittedBox(
+                                fit: BoxFit.cover,
+                                child: SizedBox(
+                                  width: _controller!.value.size.width,
+                                  height: _controller!.value.size.height,
+                                  child: VideoPlayer(_controller!),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                         // Video
                         AspectRatio(
                           aspectRatio: _controller!.value.aspectRatio,
@@ -140,7 +160,7 @@ class _VideoPlayerScreenState extends ConsumerState<VideoPlayerScreen> {
                                 final duration = value.duration;
                                 final progress = duration.inMilliseconds > 0
                                     ? position.inMilliseconds /
-                                        duration.inMilliseconds
+                                          duration.inMilliseconds
                                     : 0.0;
                                 return Container(
                                   decoration: const BoxDecoration(
@@ -173,8 +193,8 @@ class _VideoPlayerScreenState extends ConsumerState<VideoPlayerScreen> {
                                             CupertinoColors.systemGrey4,
                                         valueColor:
                                             const AlwaysStoppedAnimation(
-                                          CupertinoColors.white,
-                                        ),
+                                              CupertinoColors.white,
+                                            ),
                                         minHeight: 2,
                                       ),
                                       const SizedBox(height: 2),
