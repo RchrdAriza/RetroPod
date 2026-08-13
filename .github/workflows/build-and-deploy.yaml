@@ -212,12 +212,3 @@ jobs:
         run:  gh release upload ${{ inputs.version_number }} build/app/outputs/flutter-apk/Classipod-Android.apk
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
-      - name: Release To Play Store
-        uses: maierj/fastlane-action@v3.1.0
-        with:
-          lane: 'release_play_store'
-          subdirectory: android
-          options: '{ "version_number": "${{ inputs.version_number }}" }'
-        env:
-          APP_PACKAGE_NAME: ${{ secrets.APP_PACKAGE_NAME }}
