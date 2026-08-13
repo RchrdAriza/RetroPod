@@ -28,6 +28,9 @@ env:
   FLUTTER_CHANNEL: "stable"
   RUBY_VERSION: "3.2.2"
 
+permissions:
+  contents: write
+
 jobs:
 
   create_github_release:
@@ -181,21 +184,6 @@ jobs:
       - name: Create google_service_account.json
         run: |
           echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_BASE64 }}" | base64 --decode > google_service_account.json
-
-      - name: Create key.jks
-        run: |
-          echo "${{ secrets.ANDROID_KEYSTORE_FILE_BASE64 }}" | base64 --decode > android/key.jks
-
-      - name: Create key.properties
-        run: |
-          cat <<EOF > android/key.properties
-          storePassword=${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
-          keyPassword=${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
-          keyAlias=release
-          storeFile=../key.jks
-          EOF
-        env:
-          ANDROID_KEY_STORE_PASSWORD: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
 
       - name: Build APK
         uses: maierj/fastlane-action@v3.1.0
