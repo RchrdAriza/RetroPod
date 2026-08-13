@@ -46,7 +46,7 @@ jobs:
             gh release create "${{ inputs.version_number }}" --title "Version ${{ inputs.version_number }}" --generate-notes
           fi
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
 
   build_web:
     if: ${{ inputs.web }}
@@ -110,7 +110,7 @@ jobs:
       
       - name: "Publish Linux Release"
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           REL_VER=$(grep "^version" pubspec.yaml | cut -d' ' -f2)
           for PKG in AppImage deb rpm; do
@@ -154,7 +154,7 @@ jobs:
         run: |
           gh release upload ${{ inputs.version_number }} "%GITHUB_WORKSPACE%\Classipod-Windows.exe
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
 
   build_android:
     if: ${{ inputs.android }}
@@ -207,4 +207,4 @@ jobs:
       - name: Upload APK Artifact to GitHub Release
         run:  gh release upload ${{ inputs.version_number }} build/app/outputs/flutter-apk/Classipod-Android.apk
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
