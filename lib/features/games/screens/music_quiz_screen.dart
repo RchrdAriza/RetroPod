@@ -111,8 +111,24 @@ class _MusicQuizScreenState extends ConsumerState<MusicQuizScreen> {
 
   Future<void> _playSnippet() async {
     final player = ref.read(audioPlayerServiceProvider.notifier);
+    final audioPlayer = ref.read(audioPlayerProvider);
     try {
-      await player.playSingleSong(_correctSong);
+      // Load source first so we can read the total duration.
+      final totalDuration = await audioPlayer.setAudioSource(
+        _correctSong.toAudioSource(),
+      );
+
+      Duration startAt = Duration.zero;
+      if (totalDuration != null) {
+        final maxStartSeconds =
+            totalDuration.inSeconds - _kSnippetSeconds;
+        if (maxStartSeconds > 0) {
+          final randomSeconds = _random.nextInt(maxStartSeconds);
+          startAt = Duration(seconds: randomSeconds);
+        }
+      }
+
+      await player.playSingleSong(_correctSong, startAt: startAt);
     } catch (_) {}
   }
 
