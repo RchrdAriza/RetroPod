@@ -142,5 +142,8 @@
   "editSongGenreLabel": "Género",
   "editSongLyricsLabel": "Letra",
   "saveChangesButton": "Guardar cambios",
-  "veryLow": "Muy baja"
+  "veryLow": "Muy baja",
+  "photosMenuTitle": "Fotos",
+  "videosMenuTitle": "Videos",
+  "mediaMenuTitle": "Fotos y Videos"
 }
