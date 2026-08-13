@@ -12,7 +12,9 @@ import 'package:retropod/core/constants/constants.dart';
 import 'package:retropod/core/extensions/build_context_extensions.dart';
 import 'package:retropod/core/models/music_metadata.dart';
 import 'package:retropod/core/navigation/routes.dart';
+import 'package:retropod/core/services/audio_files_service.dart';
 import 'package:retropod/core/services/audio_player_service.dart';
+import 'package:retropod/features/app_startup/controllers/splash_controller.dart';
 import 'package:retropod/features/music/playlist/models/playlist_model.dart';
 import 'package:retropod/features/settings/models/app_theme.dart';
 import 'package:retropod/features/settings/models/click_wheel_sensitivity.dart';
@@ -325,6 +327,8 @@ class SettingsPreferencesControllerNotifier
     if (clearPlaylists) {
       await Hive.box<PlaylistModel>(Constants.playlistBoxName).clear();
     }
+    ref.invalidate(audioFilesServiceProvider);
+    ref.invalidate(splashControllerProvider);
     ref.read(routerProvider).goNamed(Routes.splash.name);
   }
 

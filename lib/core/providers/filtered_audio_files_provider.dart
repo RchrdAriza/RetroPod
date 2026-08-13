@@ -8,20 +8,15 @@ import 'package:retropod/features/settings/controller/exclude_directories_contro
 final filteredAudioFilesProvider =
     FutureProvider<UnmodifiableListView<MusicMetadata>>((ref) async {
       // Load the audio files metadata
-      final audioFilesMetadata = await ref.refresh(
+      final audioFilesMetadata = await ref.watch(
         audioFilesServiceProvider.future,
       );
-
-      // Create Excluded Directories if they don't exist
-      await ref
-          .read(excludedDirectoriesProvider.notifier)
-          .createDefaultDirectories();
 
       final excludedParentDirectories = ref
           .watch(excludedDirectoriesProvider)
           .where((excludeDirectoryModel) => excludeDirectoryModel.isExcluded)
           .map((excludedDirectoryModel) => excludedDirectoryModel.directoryPath)
-          .toList();
+          .toSet();
       final List<MusicMetadata> filteredList = [];
       for (final audioFileMetadata in audioFilesMetadata) {
         if (!excludedParentDirectories.contains(

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -20,6 +21,52 @@ void main() {
       ),
     ],
   );
+
+  test('Sanitizing picture bytes strips UTF-16 description garbage', () {
+    const jpegSignature = [0xFF, 0xD8, 0xFF];
+    const jpegData = [
+      0xFF,
+      0xD8,
+      0xFF,
+      0xE0,
+      0x00,
+      0x10,
+      0x4A,
+      0x46,
+      0x49,
+      0x46,
+      0x00,
+      0x01,
+      0xFF,
+      0xD9,
+    ];
+
+    final cleanBytes = Uint8List.fromList([...jpegData]);
+    expect(
+      MetadataReaderRepository.sanitizePictureBytes(cleanBytes),
+      cleanBytes,
+    );
+
+    // Simulates an APIC frame where the UTF-16 description tail ("over\0\0")
+    // was left glued to the front of the image bytes.
+    final dirtyBytes = Uint8List.fromList([
+      ..."over".codeUnits,
+      0x00,
+      0x00,
+      ...jpegSignature,
+      ...jpegData.skip(3),
+    ]);
+    expect(
+      MetadataReaderRepository.sanitizePictureBytes(dirtyBytes),
+      cleanBytes,
+    );
+
+    final emptyBytes = Uint8List(0);
+    expect(
+      MetadataReaderRepository.sanitizePictureBytes(emptyBytes),
+      emptyBytes,
+    );
+  });
 
   test('Recognizing that Mp3 File is Supported', () {
     final metadataReaderRepository = providerContainer.read(

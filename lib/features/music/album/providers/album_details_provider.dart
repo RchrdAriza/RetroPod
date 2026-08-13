@@ -5,7 +5,7 @@ import 'package:retropod/core/utils/artist_name_utils.dart';
 import 'package:retropod/features/music/album/models/album_model.dart';
 
 final albumDetailsProvider = Provider<List<AlbumModel>>((ref) {
-  final metadataList = ref.read(filteredAudioFilesProvider).requireValue;
+  final metadataList = ref.watch(filteredAudioFilesProvider).requireValue;
   return buildAlbumDetails(metadataList);
 });
 

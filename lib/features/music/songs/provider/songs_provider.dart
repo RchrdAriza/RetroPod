@@ -4,7 +4,7 @@ import 'package:retropod/core/providers/filtered_audio_files_provider.dart';
 
 final songsProvider = Provider<List<MusicMetadata>>((ref) {
   final metadataList = ref
-      .read(filteredAudioFilesProvider)
+      .watch(filteredAudioFilesProvider)
       .requireValue
       .toList();
   metadataList.sort((a, b) => a.getTrackName.compareTo(b.getTrackName));

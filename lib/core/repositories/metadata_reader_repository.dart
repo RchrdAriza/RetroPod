@@ -89,6 +89,49 @@ class MetadataReaderRepository {
     }
   }
 
+  /// Strips bytes preceding the first recognised image signature.
+  ///
+  /// `audio_metadata_reader` misparses ID3 `APIC` frames whose picture
+  /// description is encoded as UTF-16: the description bytes after the first
+  /// null are left glued to the front of the image data (e.g. `over\0\0`).
+  /// Trimming to the first JPEG/PNG/GIF/WEBP marker recovers a decodable file.
+  static Uint8List sanitizePictureBytes(Uint8List bytes) {
+    const signatures = <List<int>>[
+      [0xFF, 0xD8, 0xFF], // JPEG
+      [0x89, 0x50, 0x4E, 0x47], // PNG
+      [0x47, 0x49, 0x46, 0x38], // GIF
+      [0x52, 0x49, 0x46, 0x46], // WEBP (RIFF...WEBP)
+    ];
+
+    for (final signature in signatures) {
+      if (bytes.length < signature.length) {
+        continue;
+      }
+
+      final bool startsWithSignature = signature.asMap().entries.every(
+        (entry) => bytes[entry.key] == entry.value,
+      );
+      if (startsWithSignature) {
+        return bytes;
+      }
+
+      for (int i = 1; i <= bytes.length - signature.length; i++) {
+        bool matches = true;
+        for (int j = 0; j < signature.length; j++) {
+          if (bytes[i + j] != signature[j]) {
+            matches = false;
+            break;
+          }
+        }
+        if (matches) {
+          return Uint8List.sublistView(bytes, i);
+        }
+      }
+    }
+
+    return bytes;
+  }
+
   String getThumbnailPath({
     required String? albumName,
     required String? artistName,
@@ -135,9 +178,9 @@ class MetadataReaderRepository {
               artistName: audioMetadata.artist,
               filePath: path,
             );
-            File(
-              thumbnailPath,
-            ).writeAsBytesSync(audioMetadata.pictures[0].bytes);
+            File(thumbnailPath).writeAsBytesSync(
+              sanitizePictureBytes(audioMetadata.pictures[0].bytes),
+            );
           }
 
           metadataList.add(
@@ -175,9 +218,9 @@ class MetadataReaderRepository {
               artistName: audioMetadata.artist,
               filePath: path,
             );
-            File(
-              thumbnailPath,
-            ).writeAsBytesSync(audioMetadata.pictures[0].bytes);
+            File(thumbnailPath).writeAsBytesSync(
+              sanitizePictureBytes(audioMetadata.pictures[0].bytes),
+            );
           }
 
           metadataList.add(

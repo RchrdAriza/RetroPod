@@ -5,12 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:retropod/core/navigation/routes.dart';
 import 'package:retropod/core/providers/filtered_audio_files_provider.dart';
+import 'package:retropod/core/services/audio_files_service.dart';
 import 'package:retropod/core/services/audio_player_service.dart';
 import 'package:retropod/features/music/album/providers/album_details_provider.dart';
 import 'package:retropod/features/music/artists/providers/artist_names_provider.dart';
 import 'package:retropod/features/music/genres/providers/genres_provider.dart';
 import 'package:retropod/features/music/playlist/providers/playlists_provider.dart';
 import 'package:retropod/features/music/songs/provider/songs_provider.dart';
+import 'package:retropod/features/settings/controller/exclude_directories_controller.dart';
 import 'package:retropod/features/settings/controller/settings_preferences_controller.dart';
 import 'package:retropod/features/tutorial/controller/tutorial_controller.dart';
 
@@ -57,6 +59,15 @@ class SplashControllerNotifier extends AsyncNotifier<void> {
   }
 
   Future<void> initializeApp() async {
+    // Load the audio files metadata
+    await ref.read(audioFilesServiceProvider.future);
+
+    // Create Excluded Directories if they don't exist, auto-excluding
+    // system folders such as Ringtones, Notifications and Alarms.
+    await ref
+        .read(excludedDirectoriesProvider.notifier)
+        .createDefaultDirectories();
+
     // Load the filtered audio files metadata
     final filteredAudioFilesMetadata = await ref
         .read(filteredAudioFilesProvider.future)

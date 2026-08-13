@@ -31,6 +31,7 @@ class _MusicQuizScreenState extends ConsumerState<MusicQuizScreen> {
   String get routeName => Routes.musicQuiz.name;
 
   final Random _random = Random();
+  late final AudioPlayerServiceNotifier _audioService;
   List<MusicMetadata> _allSongs = [];
   late MusicMetadata _correctSong;
   late List<MusicMetadata> _choices;
@@ -47,6 +48,7 @@ class _MusicQuizScreenState extends ConsumerState<MusicQuizScreen> {
   @override
   void initState() {
     super.initState();
+    _audioService = ref.read(audioPlayerServiceProvider.notifier);
     ref.listenManual(deviceButtonsServiceProvider, _onDeviceAction);
     WidgetsBinding.instance.addPostFrameCallback((_) => _loadSongs());
   }
@@ -117,11 +119,11 @@ class _MusicQuizScreenState extends ConsumerState<MusicQuizScreen> {
       final totalDuration = await audioPlayer.setAudioSource(
         _correctSong.toAudioSource(),
       );
+      if (!mounted) return;
 
       Duration startAt = Duration.zero;
       if (totalDuration != null) {
-        final maxStartSeconds =
-            totalDuration.inSeconds - _kSnippetSeconds;
+        final maxStartSeconds = totalDuration.inSeconds - _kSnippetSeconds;
         if (maxStartSeconds > 0) {
           final randomSeconds = _random.nextInt(maxStartSeconds);
           startAt = Duration(seconds: randomSeconds);
@@ -191,6 +193,7 @@ class _MusicQuizScreenState extends ConsumerState<MusicQuizScreen> {
   @override
   void dispose() {
     _snippetTimer?.cancel();
+    unawaited(_audioService.stop());
     super.dispose();
   }
 

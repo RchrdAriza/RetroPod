@@ -6,7 +6,7 @@ final genreSongsMetadataListProvider = Provider.autoDispose
     .family<List<MusicMetadata>, String>((ref, genreName) {
       final List<MusicMetadata> genreSongsMetadataList = [];
 
-      ref.read(filteredAudioFilesProvider).requireValue.forEach((metadata) {
+      ref.watch(filteredAudioFilesProvider).requireValue.forEach((metadata) {
         if (metadata.genres.contains(genreName)) {
           genreSongsMetadataList.add(metadata);
         }
