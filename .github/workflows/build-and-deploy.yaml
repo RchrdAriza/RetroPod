@@ -58,7 +58,6 @@ jobs:
       - name: Run Flutter tasks
         uses: subosito/flutter-action@v2
         with:
-            flutter-version-file: 'pubspec.yaml'
             channel: ${{ env.FLUTTER_CHANNEL }}
 
       - name: Generate Localizations
@@ -80,7 +79,6 @@ jobs:
       - name: Run Flutter tasks
         uses: subosito/flutter-action@v2.16.0
         with:
-          flutter-version-file: 'pubspec.yaml'
           channel: ${{ env.FLUTTER_CHANNEL }}
           architecture: x64
           cache: true
@@ -133,7 +131,6 @@ jobs:
       - name: Run Flutter tasks
         uses: subosito/flutter-action@v2
         with:
-          flutter-version-file: 'pubspec.yaml'
           channel: ${{ env.FLUTTER_CHANNEL }}
 
       - name: Generate Localizations
@@ -178,7 +175,6 @@ jobs:
       - name: Run Flutter tasks
         uses: subosito/flutter-action@v2.16.0
         with:
-          flutter-version-file: 'pubspec.yaml'
           channel: ${{ env.FLUTTER_CHANNEL }}
           cache: true
 
