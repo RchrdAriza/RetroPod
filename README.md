@@ -2,7 +2,7 @@
 
 # RetroPod
 
-![RetroPod App Screenshots](screenshots/combined.jpg)
+![RetroPod App Screenshots](assets/images/hero_readme.png)
 
 Introducing "RetroPod" - Your Timeless Audio Experience
 
@@ -99,7 +99,7 @@ configured playback backend can play it. Playback availability therefore varies
 by platform:
 
 | Format         | Extensions               | Expected playback                               |
-|----------------|--------------------------|-------------------------------------------------|
+| -------------- | ------------------------ | ----------------------------------------------- |
 | MP3            | `.mp3`                   | Android, iOS, Windows, Linux, web               |
 | PCM WAV        | `.wav`                   | Android, iOS, Windows, Linux, web               |
 | FLAC           | `.flac`                  | Android, iOS, Windows, Linux, major browsers    |
@@ -121,63 +121,17 @@ by platform:
   <tr>
     <td>Android</td>
     <td>
-      <a href="https://play.google.com/store/apps/details?id=com.rchrdariza.retropod">
-        <img height="80" alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png">
-      </a>
-      <br>
-      <a href="https://f-droid.org/packages/com.rchrdariza.retropod">
-        <img height="80" alt="Get it on F-Droid" src="https://f-droid.org/badge/get-it-on.png">
-      </a>
-      <br>
       <a href="https://github.com/RchrdAriza/RetroPod/releases/latest/download/RetroPod-Android.apk">
         <img alt="APK download" src="https://img.shields.io/static/v1?label=Download&message=Android+.apk&color=2ea44f&style=for-the-badge&logo=Android&logoColor=white&logoSize=auto">
       </a>
     </td>
   </tr>
-
-  <tr>
-      <td>Linux</td>
-      <td>
-        <a href="https://github.com/RchrdAriza/RetroPod/releases/latest/download/RetroPod-Linux-AppImage.AppImage">
-          <img alt="Download .AppImage" src="https://img.shields.io/static/v1?label=Download&message=.AppImage&color=FCC624&style=for-the-badge&logo=linux&logoColor=white&logoSize=auto">
-        </a>
-        <br>
-        <br>
-        <a href="https://github.com/RchrdAriza/RetroPod/releases/latest/download/RetroPod-Linux-deb.deb">
-          <img alt="Download .deb" src="https://img.shields.io/static/v1?label=Download&message=%20%20%20%20%20.deb&color=A81D33&style=for-the-badge&logo=debian&logoColor=white&logoSize=auto">
-        </a>
-        <br>
-        <br>
-        <a href="https://github.com/RchrdAriza/RetroPod/releases/latest/download/RetroPod-Linux-rpm.rpm">
-          <img alt="Download .rpm" src="https://img.shields.io/static/v1?label=Download&message=.rpm&color=EE0000&style=for-the-badge&logo=redhat&logoColor=white&logoSize=auto">
-        </a>
-      </td>
-  </tr>
-
-  <tr>
-      <td>Windows</td>
-      <td>
-        <a href="https://github.com/RchrdAriza/RetroPod/releases/latest/download/RetroPod-Windows.exe">
-          <img alt="Download Windows Installer" src="https://img.shields.io/static/v1?label=Download&message=Windows+.exe&color=blue&style=for-the-badge&logo=webtrees&logoColor=white&logoSize=auto">
-        </a>
-      </td>
-  </tr>
-
-  <tr>
-      <td>Web App</td>
-      <td>
-        <a href="https://RchrdAriza.github.io/RetroPod/#/">
-          <img alt="Web App" src="https://img.shields.io/static/v1?label=Webapp&message=Visit+Website&color=blueviolet&style=for-the-badge&logo=googlechrome&logoColor=white&logoSize=auto">
-        </a>
-      </td>
-  </tr>
-
 </table>
 
 ## Plugins
 
 | Name                                                                                          | Usage                                                                               |
-|-----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | [**audio_metadata_reader**](https://pub.dev/packages/audio_metadata_reader)                   | To read the metadata of the local mp3 files                                         |
 | [**audio_service**](https://pub.dev/packages/audio_service)                                   | To support background audio playback                                                |
 | [**battery_plus**](https://pub.dev/packages/battery_plus)                                     | Shows phone battery level and status                                                |
