@@ -6,7 +6,7 @@ icon: snap/gui/retropod.png
 contact: mailto:adeeteya@gmail.com
 source-code: https://github.com/RchrdAriza/RetroPod
 issues: https://github.com/RchrdAriza/RetroPod/issues
-license: BSD-4-Clause
+license: MIT
 
 confinement: strict
 base: core22

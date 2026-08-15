@@ -4,7 +4,7 @@ group: Applications/Multimedia
 vendor: adeeteya
 packager: Aditya R
 packagerEmail: adeeteya@gmail.com
-license: BSD-4-Clause
+license: MIT
 url: https://github.com/RchrdAriza/RetroPod
 requires:
   - mpv

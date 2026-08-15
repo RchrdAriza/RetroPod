@@ -1,0 +1,13 @@
+RetroPod is a fork of Classipod, an open source iPod Classic emulator.
+
+Classipod, including portions of code used in this project, is copyright
+(c) 2025 Aditya R and is distributed under the BSD 4-Clause "Original" or
+"Old" License (SPDX: BSD-4-Clause). The original license text is available
+in the LICENSE-CLASSIPOD file at the root of this repository.
+
+This project adds new code and modifications on top of that base. Unless
+stated otherwise, contributions to RetroPod are licensed under the MIT
+License, as described in the LICENSE file.
+
+Original Classipod repository:
+https://github.com/adeeteya/Classipod

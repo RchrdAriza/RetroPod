@@ -174,8 +174,11 @@ Maintained and updated by: **[me :)](https://rchrdariza.dev)**
 
 ## Licence
 
-Copyright (c) 2025 Aditya R
-[BSD-4-Clause Licence](https://github.com/RchrdAriza/RetroPod/blob/master/LICENSE)
+[MIT License](https://github.com/RchrdAriza/RetroPod/blob/master/LICENSE)
+
+This project is a fork of [Classipod](https://github.com/adeeteya/Classipod) (copyright (c) 2025
+Aditya R), which remains under its [BSD-4-Clause licence](https://github.com/RchrdAriza/RetroPod/blob/master/LICENSE-CLASSIPOD).
+See [NOTICE](https://github.com/RchrdAriza/RetroPod/blob/master/NOTICE) for details.
 
 ## Attributions
 
