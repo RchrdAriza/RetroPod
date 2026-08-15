@@ -1,3 +1,5 @@
+[🔴 changed launcher icon background from purple to red](https://github.com/RchrdAriza/RetroPod)
+
 [🚀 updated CI/CD to build windows installer](https://github.com/RchrdAriza/RetroPod/commit/3fc038606228a9c1e70404b7b902806a97c89324)
 
 [✨ added ability to run debug app without keystore](https://github.com/RchrdAriza/RetroPod/commit/549c6cfec0bb33ae0b565b42a8077dc458a9ac1e)
