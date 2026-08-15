@@ -1,0 +1,10 @@
+# Reference build for the 1.13.0 release (produced twice, identical checksums).
+
+# Build command:
+#   flutter build apk --release --no-pub \
+#     --flavor=production --target=lib/main.dart
+# Built with Flutter 3.44.9 (stable) and Dart 3.12.2, signed with the
+# fallback debug key (no release keystore configured), matching what the
+# F-Droid build server does.
+
+46eddb0a485fb814c06a5b08ed613de08df34073445dc85e6b14dff5b83d30b1  RetroPod-1.13.0-production.apk
