@@ -40,7 +40,8 @@ built twice with Flutter 3.44.9 from tag 1.13.0:
     46eddb0a485fb814c06a5b08ed613de08df34073445dc85e6b14dff5b83d30b1
 
 The F-Droid build should produce the same hash when built with the pinned
-toolchain and without `--obfuscate`/`--split-debug-info`.
+toolchain and without `--obfuscate`/`--split-debug-info` from the same
+checkout directory.
 
 Caveat verified on 15/08/2026 with `fdroid build --test`: two fdroid builds
 of tag `1.14.0` are byte-identical (unsigned tree hash
