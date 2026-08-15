@@ -9,15 +9,18 @@
   ejecutado dos veces sobre el mismo directorio de build en
   `/tmp/opencode/fdroid-test`.
 - **Build reproducible**: los dos APKs desfirmados son byte-idénticos
-  (diff sin diferencias, hash del árbol desfirmado =
+  (hash del árbol desfirmado =
+  `d9b83e767b63d7b19a7fafabd152ae5075dfe995ad49ffcde79831dc273c4306`
+  para la receta final; el de `6bbcaf0` fue
   `bfb9308f59603f13c08c3e8040b1f5ab1bea7cf14ccf2e157fe3405cddfff3da`).
 - **Corrección importante de la receta**: el build original apuntaba al tag
   `1.13.0` (commit `1974434`), que es **anterior** a todo el trabajo de
   preparación F-Droid: en ese commit la licencia era BSD (ClassiPod) y las
-  fuentes Helvetica (propietarias). La receta ahora apunta a
-  `6bbcaf0a0e866a871b743c30c16dcd3a6f64694f` (remoto, contiene MIT +
-  LiberationSans + sin donate). `07c5ed6` no sirve: solo añade las notas y
-  no está en el remoto.
+  fuentes Helvetica (propietarias). Tras los hallazgos se creó el tag
+  **`1.14.0`** (versionCode 27) en GitHub con todos los arreglos (MIT +
+  LiberationSans + sin donate) y la receta referencia ese tag:
+  `commit: 1.14.0`. Los commits sueltos `6bbcaf0`/`07c5ed6` no se usan:
+  el último no está en el remoto.
 
 ## Verify checksum — matiz importante
 
@@ -66,9 +69,18 @@
    con la receta `fdroid/com.rchrdariza.retropod.yml`, el checksum de
    referencia y las notas de `docs/fdroid/submission.md`. Precisa token de
    GitLab (scope `api`) o hacerlo a mano con el texto preparado.
-2. **Recomendación a fdroiddata**: crear un tag oficial (p. ej. `1.14.0`) en
-   GitHub que apunte al código con MIT + LiberationSans, para que la receta
-   use un tag en lugar de un sha de commit suelto.
+
+## Hecho en esta sesión (15/08/2026)
+
+- **Tag `1.14.0` creado y publicado** en GitHub
+  (release https://github.com/RchrdAriza/RetroPod/releases/tag/1.14.0).
+- Receta actualizada a `versionName: 1.14.0`, `versionCode: 27`,
+  `commit: 1.14.0`, `CurrentVersion/CurrentVersionCode` sincronizados.
+- `fdroid readmeta` OK y dos builds del tag `1.14.0` reproducibles
+  (árbol desfirmado `d9b83e76...`, 88.7 MB).
+- Nota: hubo dos builds de fdroid compitiendo por el mismo `build/` en
+  `/tmp/opencode/fdroid-test` (uno lanzado fuera de la sesión); se mató el
+  duplicado y el build final quedó limpio.
 
 ## Riesgos de review recordados
 

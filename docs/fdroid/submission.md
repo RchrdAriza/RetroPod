@@ -43,8 +43,8 @@ The F-Droid build should produce the same hash when built with the pinned
 toolchain and without `--obfuscate`/`--split-debug-info`.
 
 Caveat verified on 15/08/2026 with `fdroid build --test`: two fdroid builds
-of commit `6bbcaf0` are byte-identical (unsigned tree hash
-`bfb9308f59603f13c08c3e8040b1f5ab1bea7cf14ccf2e157fe3405cddfff3da`), so the
+of tag `1.14.0` are byte-identical (unsigned tree hash
+`d9b83e767b63d7b19a7fafabd152ae5075dfe995ad49ffcde79831dc273c4306`), so the
 build is reproducible on F-Droid infra. The local reference checksum above
 will NOT byte-match an F-Droid build because the Dart AOT snapshot embeds the
 absolute checkout path (`/home/richard/RetroPod` vs F-Droid's build dir);
