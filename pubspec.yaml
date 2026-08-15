@@ -72,8 +72,8 @@ flutter:
     - assets/skins/
 
   fonts:
-    - family: Helvetica
+    - family: Liberation Sans
       fonts:
-        - asset: assets/fonts/Helvetica.ttf
-        - asset: assets/fonts/Helvetica-Bold.ttf
+        - asset: assets/fonts/LiberationSans-Regular.ttf
+        - asset: assets/fonts/LiberationSans-Bold.ttf
           weight: 700

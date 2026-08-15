@@ -2,7 +2,7 @@ class Assets {
   Assets._();
 
   // fonts
-  static const String helveticaFont = 'Helvetica';
+  static const String appFont = 'Liberation Sans';
 
   // images
   static const String appIcon = 'assets/images/app_icon.webp';

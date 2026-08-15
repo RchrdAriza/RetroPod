@@ -33,7 +33,7 @@ enum AppTheme {
           textTheme: CupertinoTextThemeData(
             textStyle: TextStyle(
               color: CupertinoColors.black,
-              fontFamily: Assets.helveticaFont,
+              fontFamily: Assets.appFont,
             ),
           ),
         );
@@ -46,7 +46,7 @@ enum AppTheme {
           textTheme: CupertinoTextThemeData(
             textStyle: TextStyle(
               color: CupertinoColors.white,
-              fontFamily: Assets.helveticaFont,
+              fontFamily: Assets.appFont,
             ),
           ),
         );

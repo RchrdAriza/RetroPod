@@ -1,4 +1,6 @@
-[🔴 changed launcher icon background from purple to red](https://github.com/RchrdAriza/RetroPod)
+[replaced proprietary Helvetica font with Liberation Sans (SIL OFL) and documented asset licenses](https://github.com/RchrdAriza/RetroPod)
+
+[changed launcher icon background from purple to red](https://github.com/RchrdAriza/RetroPod)
 
 [🚀 updated CI/CD to build windows installer](https://github.com/RchrdAriza/RetroPod/commit/3fc038606228a9c1e70404b7b902806a97c89324)
 
