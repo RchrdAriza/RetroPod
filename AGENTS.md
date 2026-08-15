@@ -18,6 +18,7 @@
 - Respect `analysis_options.yaml`: declare return types, prefer `const`, keep package imports absolute, and stay ≤80 columns.
 - Use `snake_case.dart` filenames, `UpperCamelCase` for classes, and suffix Riverpod notifiers/controllers (`PlaybackController`, `LibraryNotifier`) inside `lib/features/`.
 - Factor reusable UI into `lib/core/widgets/`, include trailing commas, and avoid relative imports (`../`) entirely.
+- Do not use emojis anywhere (code, docs, commit messages, chat): write plain text only.
 
 ## Testing Guidelines
 - Store pure logic specs in `test/unit_tests/` and widget scenarios in `test/widget_tests/`, mirroring the folder layout under `lib/features/`.
@@ -25,7 +26,7 @@
 - Maintain coverage by extending suites whenever playback, persistence, or routing code changes; reuse fixtures from `test/test_files/` instead of adding new binaries.
 
 ## Commit & Pull Request Guidelines
-- Match the existing history with emoji-prefixed, present-tense commits such as `🐛 fix thumbnail path` or `✨ add coverflow filter`, referencing issues (`fixes #51`) when applicable.
+- Write present-tense commits referencing issues (`fixes #51`) when applicable; no emojis or emoji prefixes in commit messages.
 - Complete the checklist in `pull_request_template.md`, note platform verification (Android/Windows/Web), and include before/after screenshots for UI work.
 - Summarize any Fastlane or build-runner commands you ran so reviewers can reproduce the environment.
 
