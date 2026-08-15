@@ -29,9 +29,9 @@ RepoType: git
 Repo: https://github.com/RchrdAriza/RetroPod.git
 
 Builds:
-  - versionName: 1.13.0
-    versionCode: 26
-    commit: 6bbcaf0a0e866a871b743c30c16dcd3a6f64694f
+  - versionName: 1.14.0
+    versionCode: 27
+    commit: 1.14.0
     output: build/app/outputs/flutter-apk/app-production-release.apk
     srclibs:
       - flutter@3.44.9
@@ -50,5 +50,5 @@ Builds:
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^\d+\.\d+\.\d+$
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.13.0
-CurrentVersionCode: 26
+CurrentVersion: 1.14.0
+CurrentVersionCode: 27

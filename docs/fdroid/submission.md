@@ -20,10 +20,10 @@ Copy `fdroid/com.rchrdariza.retropod.yml` into the fdroiddata repository as
 
     metadata/com.rchrdariza.retropod.yml
 
-For the first build it references commit `6bbcaf0` (versionCode 26). Note:
+For the first build it references tag `1.14.0` (versionCode 27). Note:
 the `1.13.0` tag (`1974434`) predates the F-Droid preparation work (it still
-had the BSD license and Helvetica fonts), so the recipe points at the remote
-commit that contains MIT + LiberationSans + no donate. The APK output path is
+had the BSD license and Helvetica fonts), so the recipe points at the tag
+that contains MIT + LiberationSans + no donate. The APK output path is
 `build/app/outputs/flutter-apk/app-production-release.apk`. The recipe:
 
 - Provides Flutter as a srclib pinned to 3.44.9.
