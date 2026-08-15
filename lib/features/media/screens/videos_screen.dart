@@ -163,7 +163,7 @@ class _VideosScreenState extends ConsumerState<VideosScreen> {
                                 ),
                                 child: Row(
                                   children: [
-                                    _buildVideoThumbnail(video.path),
+                                    _buildVideoThumbnail(video),
                                     const SizedBox(width: 8),
                                     Expanded(
                                       child: Text(
@@ -205,8 +205,20 @@ class _VideosScreenState extends ConsumerState<VideosScreen> {
     );
   }
 
-  Widget _buildVideoThumbnail(String videoPath) {
-    final thumbnailAsync = ref.watch(videoThumbnailPathProvider(videoPath));
+  Widget _buildVideoThumbnail(MediaFileModel video) {
+    if (video.isRemote) {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(4),
+        child: Image.network(
+          video.thumbnailPath ?? video.path,
+          width: 38,
+          height: 38,
+          fit: BoxFit.cover,
+          errorBuilder: (_, _, _) => const _FilmThumbnailPlaceholder(),
+        ),
+      );
+    }
+    final thumbnailAsync = ref.watch(videoThumbnailPathProvider(video.path));
     return ClipRRect(
       borderRadius: BorderRadius.circular(4),
       child: thumbnailAsync.when(

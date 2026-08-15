@@ -119,7 +119,7 @@ class _PhotoViewerScreenState extends ConsumerState<PhotoViewerScreen> {
               itemCount: widget.photos.length,
               onPageChanged: (i) => setState(() => _currentIndex = i),
               itemBuilder: (context, index) {
-                return _ZoomablePhoto(path: widget.photos[index].path);
+                return _ZoomablePhoto(photo: widget.photos[index]);
               },
             ),
           ),
@@ -146,9 +146,9 @@ class _PhotoViewerScreenState extends ConsumerState<PhotoViewerScreen> {
 }
 
 class _ZoomablePhoto extends StatefulWidget {
-  final String path;
+  final MediaFileModel photo;
 
-  const _ZoomablePhoto({required this.path});
+  const _ZoomablePhoto({required this.photo});
 
   @override
   State<_ZoomablePhoto> createState() => _ZoomablePhotoState();
@@ -209,13 +209,16 @@ class _ZoomablePhotoState extends State<_ZoomablePhoto>
 
   @override
   Widget build(BuildContext context) {
+    final ImageProvider image = widget.photo.isRemote
+        ? NetworkImage(widget.photo.path)
+        : FileImage(File(widget.photo.path));
     return Stack(
       fit: StackFit.expand,
       children: [
         ImageFiltered(
           imageFilter: ImageFilter.blur(sigmaX: 28, sigmaY: 28),
-          child: Image.file(
-            File(widget.path),
+          child: Image(
+            image: image,
             fit: BoxFit.cover,
             errorBuilder: (_, _, _) =>
                 const ColoredBox(color: CupertinoColors.black),
@@ -228,8 +231,8 @@ class _ZoomablePhotoState extends State<_ZoomablePhoto>
             minScale: 1.0,
             maxScale: 5.0,
             panEnabled: _isZoomed,
-            child: Image.file(
-              File(widget.path),
+            child: Image(
+              image: image,
               fit: BoxFit.contain,
               errorBuilder: (_, _, _) => const Center(
                 child: Icon(

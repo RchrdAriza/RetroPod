@@ -86,6 +86,48 @@ Future<List<MediaFileModel>> _scanDirectories(List<String> dirs) async {
 }
 
 // ---------------------------------------------------------------------------
+// Web demo files
+// ---------------------------------------------------------------------------
+
+List<MediaFileModel> _webDemoMediaFiles() {
+  return [
+    MediaFileModel(
+      path: 'https://picsum.photos/id/1018/1200/800',
+      type: MediaFileType.photo,
+      name: 'Mountain.jpg',
+    ),
+    MediaFileModel(
+      path: 'https://picsum.photos/id/1015/1200/800',
+      type: MediaFileType.photo,
+      name: 'River.jpg',
+    ),
+    MediaFileModel(
+      path: 'https://picsum.photos/id/1019/1200/800',
+      type: MediaFileType.photo,
+      name: 'Lake.jpg',
+    ),
+    MediaFileModel(
+      path: 'https://flutter.github.io/assets-for-api-docs/assets/videos/'
+          'bee.mp4',
+      type: MediaFileType.video,
+      name: 'bee.mp4',
+      thumbnailPath:
+          'https://flutter.github.io/assets-for-api-docs/assets/videos/'
+          'bee.png',
+    ),
+    MediaFileModel(
+      path: 'https://flutter.github.io/assets-for-api-docs/assets/videos/'
+          'butterfly.mp4',
+      type: MediaFileType.video,
+      name: 'butterfly.mp4',
+      thumbnailPath:
+          'https://flutter.github.io/assets-for-api-docs/assets/videos/'
+          'butterfly.png',
+    ),
+  ];
+}
+
+// ---------------------------------------------------------------------------
 // Provider
 // ---------------------------------------------------------------------------
 final mediaFilesServiceProvider = AsyncNotifierProvider<
@@ -101,6 +143,9 @@ class MediaFilesServiceNotifier
   }
 
   Future<List<MediaFileModel>> _loadFiles() async {
+    if (kIsWeb) {
+      return _webDemoMediaFiles();
+    }
     final allDirs = [..._defaultMediaDirs(), ...await _getCustomDirs()];
     return compute(_scanDirectories, allDirs);
   }

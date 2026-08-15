@@ -163,17 +163,29 @@ class _PhotosScreenState extends ConsumerState<PhotosScreen> {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(4),
-                                      child: Image.file(
-                                        File(photo.path),
-                                        width: 38,
-                                        height: 38,
-                                        fit: BoxFit.cover,
-                                        errorBuilder: (_, _, _) =>
-                                            const Icon(
-                                          CupertinoIcons.photo,
-                                          size: 38,
-                                        ),
-                                      ),
+                                      child: photo.isRemote
+                                          ? Image.network(
+                                              photo.path,
+                                              width: 38,
+                                              height: 38,
+                                              fit: BoxFit.cover,
+                                              errorBuilder: (_, _, _) =>
+                                                  const Icon(
+                                                CupertinoIcons.photo,
+                                                size: 38,
+                                              ),
+                                            )
+                                          : Image.file(
+                                              File(photo.path),
+                                              width: 38,
+                                              height: 38,
+                                              fit: BoxFit.cover,
+                                              errorBuilder: (_, _, _) =>
+                                                  const Icon(
+                                                CupertinoIcons.photo,
+                                                size: 38,
+                                              ),
+                                            ),
                                     ),
                                     const SizedBox(width: 8),
                                     Expanded(

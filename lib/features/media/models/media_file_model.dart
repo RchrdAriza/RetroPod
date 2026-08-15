@@ -8,13 +8,17 @@ class MediaFileModel {
   final MediaFileType type;
   final String name;
   final DateTime? dateModified;
+  final String? thumbnailPath;
 
   const MediaFileModel({
     required this.path,
     required this.type,
     required this.name,
     this.dateModified,
+    this.thumbnailPath,
   });
+
+  bool get isRemote => path.startsWith('http');
 
   @override
   bool operator ==(Object other) =>

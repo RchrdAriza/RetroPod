@@ -2,7 +2,7 @@
 
 # RetroPod
 
-![RetroPod App Screenshots](assets/images/hero_readme.png)
+![RetroPod App Screenshots](assets/images/hero_readme.webp)
 
 Introducing "RetroPod" - Your Timeless Audio Experience
 
@@ -168,7 +168,9 @@ by platform:
 
 ## Author
 
-**[Aditya R](https://github.com/adeeteya)**
+Original author: **[Aditya R](https://github.com/adeeteya)**
+
+Maintained and updated by: **[me :)](https://rchrdariza.dev)**
 
 ## Licence
 

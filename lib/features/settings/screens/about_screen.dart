@@ -65,6 +65,11 @@ class AboutScreen extends ConsumerWidget {
                   titleText: context.localization.madeWithLoveTitle,
                   valueText: "Aditya",
                 ),
+                AboutListTile(
+                  titleText: context.localization.maintainedByTitle,
+                  valueText: "Richard",
+                  linkUrl: "https://rchrdariza.dev",
+                ),
               ],
             ),
           ),

@@ -37,7 +37,9 @@ class _VideoPlayerScreenState extends ConsumerState<VideoPlayerScreen> {
   }
 
   Future<void> _initPlayer() async {
-    final controller = VideoPlayerController.file(File(widget.video.path));
+    final controller = widget.video.isRemote
+        ? VideoPlayerController.networkUrl(Uri.parse(widget.video.path))
+        : VideoPlayerController.file(File(widget.video.path));
     _controller = controller;
     await controller.initialize();
     if (mounted) {

@@ -68,7 +68,7 @@ jobs:
 
       - uses: bluefireteam/flutter-gh-pages@v9
         with:
-          baseHref: /Classipod/
+          baseHref: /RetroPod/
 
   build_linux:
     if: ${{ inputs.linux }}

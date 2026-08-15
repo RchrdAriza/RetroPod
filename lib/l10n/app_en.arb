@@ -184,6 +184,10 @@
   "@madeWithLoveTitle": {
     "description": "The title of the made with love section in the about screen"
   },
+  "maintainedByTitle": "Maintained by",
+  "@maintainedByTitle": {
+    "description": "The title of the maintainer section in the about screen"
+  },
   "noMusicFilesFound": "No Music",
   "@noMusicFilesFound": {
     "description": "The message displayed when no music files are found"

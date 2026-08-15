@@ -77,4 +77,42 @@ final List<MusicMetadata> onlineDemoAudioFilesMetaData = [
     thumbnailPath:
         "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/RetroPod/thumbnails/On&OnbyCartoon&DanielLevi.jpg",
   ),
+  MusicMetadata(
+    trackName: "Invincible",
+    trackArtistNames: ["DEAF KEV"],
+    albumName: "Invincible",
+    albumArtistName: "DEAF KEV",
+    trackNumber: 1,
+    discNumber: 1,
+    mimeType: "image/jpeg",
+    year: 2014,
+    genres: ["Dance/Electronic"],
+    trackDuration: 256000,
+    originalSongIndex: 5,
+    isOnDevice: false,
+    filePath:
+        "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/wav/Invincible.wav",
+    thumbnailPath:
+        "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/RetroPod/thumbnails/FireflybyJimYosef.jpg",
+  ),
+  MusicMetadata(
+    trackName: "Faded (Flac)",
+    trackArtistNames: ["Alan Walker"],
+    albumName: "Faded",
+    albumArtistName: "Alan Walker",
+    trackNumber: 1,
+    albumLength: 1,
+    discNumber: 1,
+    year: 2015,
+    genres: ["Electro House"],
+    mimeType: "image/jpeg",
+    trackDuration: 212697,
+    bitrate: 128000,
+    originalSongIndex: 6,
+    isOnDevice: false,
+    filePath:
+        "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/flac/Faded.flac",
+    thumbnailPath:
+        "https://raw.githubusercontent.com/RchrdAriza/RetroPod/master/test/test_files/RetroPod/thumbnails/FadedbyAlanWalker.jpg",
+  ),
 ];
