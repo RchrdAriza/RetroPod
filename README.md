@@ -193,14 +193,16 @@ Each release must be tagged at the commit that bumps `pubspec.yaml` (e.g. tag
 
 Original author: **[Aditya R](https://github.com/adeeteya)**
 
-Maintained and updated by: **[me :)](https://rchrdariza.dev)**
+Maintained and updated by: **[Richard Ariza](https://rchrdariza.dev)**
 
-## Licence
+## License
 
-[MIT License](https://github.com/RchrdAriza/RetroPod/blob/master/LICENSE)
+Modifications and original contributions in this fork are licensed under the
+[MIT License](https://github.com/RchrdAriza/RetroPod/blob/master/LICENSE).
 
-This project is a fork of [Classipod](https://github.com/adeeteya/Classipod) (copyright (c) 2025
-Aditya R), which remains under its [BSD-4-Clause licence](https://github.com/RchrdAriza/RetroPod/blob/master/LICENSE-CLASSIPOD).
+This project is a fork of [ClassiPod](https://github.com/adeeteya/Classipod)
+(copyright (c) 2025 Aditya R), whose original code remains licensed under the
+[BSD-4-Clause License](https://github.com/RchrdAriza/RetroPod/blob/master/LICENSE-CLASSIPOD).
 See [NOTICE](https://github.com/RchrdAriza/RetroPod/blob/master/NOTICE) for details.
 
 ## Attributions
