@@ -1,76 +1,74 @@
-# F-Droid: test de la receta — estado y continuación
+# F-Droid: test de la receta — estado y resultados
 
-> Creado el 15/08/2026 antes de dormir. Resumen de dónde quedamos y cómo
-> continuar mañana.
+> Creado el 15/08/2026 antes de dormir. Continuado y resuelto el mismo día:
+> el build de test se ejecutó a fondo y la receta quedó validada.
+
+## Resultado final ✅
+
+- **`fdroid build --test --verbose com.rchrdariza.retropod` → `1 build succeeded`**,
+  ejecutado dos veces sobre el mismo directorio de build en
+  `/tmp/opencode/fdroid-test`.
+- **Build reproducible**: los dos APKs desfirmados son byte-idénticos
+  (diff sin diferencias, hash del árbol desfirmado =
+  `bfb9308f59603f13c08c3e8040b1f5ab1bea7cf14ccf2e157fe3405cddfff3da`).
+- **Corrección importante de la receta**: el build original apuntaba al tag
+  `1.13.0` (commit `1974434`), que es **anterior** a todo el trabajo de
+  preparación F-Droid: en ese commit la licencia era BSD (ClassiPod) y las
+  fuentes Helvetica (propietarias). La receta ahora apunta a
+  `6bbcaf0a0e866a871b743c30c16dcd3a6f64694f` (remoto, contiene MIT +
+  LiberationSans + sin donate). `07c5ed6` no sirve: solo añade las notas y
+  no está en el remoto.
+
+## Verify checksum — matiz importante
+
+- El hash del APK de fdroid **no coincide** con el de referencia
+  (`46eddb0...`). Causa raíz diagnosticada:
+  - `libflutter.so` es **idéntico** y la sección `.text` de `libapp.so`
+    también (código máquina reproducible).
+  - Difieren `.rodata`, `.eh_frame` y el build-id **solo porque el snapshot
+    AOT de Dart embebe la ruta absoluta del checkout**
+    (`/home/richard/RetroPod` vs `/tmp/opencode/fdroid-test/build/...`),
+    lo que desalinea todos los offsets posteriores.
+  - Como F-Droid siempre builda en la misma ruta en su build server, la
+    reproducibilidad real (dos builds = mismo APK) se cumple; la comparación
+    byte-a-byte con un build local solo es posible si ambos usan el mismo
+    directorio.
 
 ## Qué está hecho ✅
 
-- **Receta** validada con `fdroid readmeta` (exit 0):
-  `retropod/fdroid/com.rchrdariza.retropod.yml`
-- **Build reproducible** verificado dos veces con Flutter 3.44.9, SHA-256:
-  `46eddb0a485fb814c06a5b08ed613de08df34073445dc85e6b14dff5b83d30b1`
-  (guardado en `docs/fdroid/reference-build-1.13.0.sha256`)
-- **fdroidserver 2.4.2 instalado** en `/home/richard/fdroidserver` (venv en
-  `env/`), instalado desde git (modo oficial F-Droid), no AUR.
+- Receta validada con `fdroid readmeta` (exit 0):
+  `fdroid/com.rchrdariza.retropod.yml`.
+- fdroidserver 2.4.2 en `/home/richard/fdroidserver` (venv en `env/`),
+  instalado desde git (modo oficial F-Droid).
+- Entorno de test en `/tmp/opencode/fdroid-test`:
+  - `fdroid init` (keystore.p12 temporal, keyalias cachyosrzx).
+  - `metadata/com.rchrdariza.retropod.yml` (ahora con commit `6bbcaf0`).
+  - `srclibs/flutter.yml` oficial (`RepoType: git`,
+    `Repo: https://github.com/flutter/flutter.git`).
+  - Repo con `.git` (necesario para `SOURCE_DATE_EPOCH`).
+- Build de prueba ejecutado **dos veces** sobre el commit `6bbcaf0`
+  (costó ~4-5 min por build con caches ya calientes en el segundo).
 
-## Entorno de test configurado
+## Fixes del entorno que hicieron falta
 
-El repo de prueba está en `/tmp/opencode/fdroid-test`:
-
-- `fdroid init` ejecutado (genera `config.yml` con `sdk_path: $ANDROID_HOME`,
-  `keystore.p12` temporal, `keyalias`=cachyosrzx).
-- `metadata/com.rchrdariza.retropod.yml` copiado desde el repo de RetroPod.
-- `srclibs/flutter.yml` agregado (definición oficial de fdroiddata:
-  `RepoType: git`, `Repo: https://github.com/flutter/flutter.git`).
-- El repo de test tiene `.git` con la metadata y config commiteadas
-  (fdroid necesita git para `SOURCE_DATE_EPOCH`).
-
-### Fixes del entorno que hicieron falta
-
-1. **`pkg_resources` roto**: `setuptools` 84 en el venv no incluye
-   `pkg_resources`. Se corrigió con:
-   `/home/richard/fdroidserver/env/bin/pip install "setuptools<81"`
-2. **`SOURCE_DATE_EPOCH: None`** en el primer `fdroid build`: faltaba git en
-   el repo de prueba → `git init` + commit de metadata/config.
-3. **`srclib flutter not found`**: fdroid lee las srclibs del directorio
-   `srclibs/*.yml` del repo de fdroiddata; el pip install no lo trae, así que
+1. **`pkg_resources` roto**: setuptools 84 no incluye `pkg_resources`; se
+   instaló `setuptools<81` en `/home/richard/fdroidserver/env`.
+2. **`SOURCE_DATE_EPOCH: None`**: faltaba git en el repo → `git init` +
+   commit de metadata/config.
+3. **`srclib flutter not found`**: las srclibs viven fuera del pip install;
    se copió la definición oficial de `srclibs/flutter.yml`.
+4. **Checkout fallido con `07c5ed6`**: ese commit no está en GitHub, y fdroid
+   clona desde el remoto. Solución: apuntar al commit remoto `6bbcaf0`.
 
-## Dónde quedamos 🔄
+## Próximos pasos
 
-- Comando de test ejecutado, **interrumpido a propósito** (descarga de
-  Flutter 3.44.9 ~1GB + build completo, tarda ~15-30 min):
-
-```bash
-cd /tmp/opencode/fdroid-test
-export ANDROID_HOME=/home/richard/Android/Sdk
-/home/richard/fdroidserver/env/bin/fdroid build --test --verbose com.rchrdariza.retropod
-```
-
-- Antes de interrumpir ya había: clonado RetroPod en `@1974434`,
-  checkout del commit, y ahora empezaría a descargar/checkout de la srclib
-  flutter@3.44.9 y a ejecutar prebuild + build.
-
-## Para continuar mañana
-
-1. Ejecutar el comando de test de nuevo (desde `/tmp/opencode/fdroid-test`).
-   Necesita red (descarga Flutter 3.44.9 y dependencias pub/gradle).
-2. Si el build OK, verificar el SHA-256 del APK resultante contra:
-   `46eddb0a485fb814c06a5b08ed613de08df34073445dc85e6b14dff5b83d30b1`
-   (ojo: fdroid re-firma con su propio keystore, compárese el contenido
-   desfirmado si se quiere estricto).
-3. Si falla, mirar el log de build; los mantainers de fdroiddata ajustarán el
-   resto (p. ej. `sdk_version`, build-tools).
-
-## Después: abrir el request en fdroiddata
-
-- Necesita token de GitLab (Personal Access Token, scope `api`) o abrir el
-  issue a mano con el texto preparado.
-- URL: https://gitlab.com/fdroid/fdroiddata/-/issues
-- El texto del issue debe incluir: app = RetroPod, licencia MIT, repo
-  https://github.com/RchrdAriza/RetroPod, la receta
-  (`fdroid/com.rchrdariza.retropod.yml`), el checksum de referencia, y las
-  notas de `/home/richard/RetroPod/docs/fdroid/submission.md`.
+1. Abrir el request en fdroiddata (https://gitlab.com/fdroid/fdroiddata/-/issues)
+   con la receta `fdroid/com.rchrdariza.retropod.yml`, el checksum de
+   referencia y las notas de `docs/fdroid/submission.md`. Precisa token de
+   GitLab (scope `api`) o hacerlo a mano con el texto preparado.
+2. **Recomendación a fdroiddata**: crear un tag oficial (p. ej. `1.14.0`) en
+   GitHub que apunte al código con MIT + LiberationSans, para que la receta
+   use un tag en lugar de un sha de commit suelto.
 
 ## Riesgos de review recordados
 

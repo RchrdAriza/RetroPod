@@ -8,3 +8,11 @@
 # F-Droid build server does.
 
 46eddb0a485fb814c06a5b08ed613de08df34073445dc85e6b14dff5b83d30b1  RetroPod-1.13.0-production.apk
+
+# F-Droid build reproducibility (verified 2026-08-15 with fdroid build --test
+# on commit 6bbcaf0, two consecutive builds from the same checkout dir):
+# the unsigned contents of both APKs are byte-identical:
+#   bfb9308f59603f13c08c3e8040b1f5ab1bea7cf14ccf2e157fe3405cddfff3da
+# The local reference hash above will not byte-match an F-Droid build because
+# the Dart AOT snapshot embeds the absolute checkout path; libflutter.so and
+# the .text section are identical while .rodata/.eh_frame/build-id differ.

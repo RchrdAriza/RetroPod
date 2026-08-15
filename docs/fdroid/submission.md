@@ -20,8 +20,10 @@ Copy `fdroid/com.rchrdariza.retropod.yml` into the fdroiddata repository as
 
     metadata/com.rchrdariza.retropod.yml
 
-For the first build it references commit `1974434` (tag 1.13.0, versionCode
-26). The APK output path is
+For the first build it references commit `6bbcaf0` (versionCode 26). Note:
+the `1.13.0` tag (`1974434`) predates the F-Droid preparation work (it still
+had the BSD license and Helvetica fonts), so the recipe points at the remote
+commit that contains MIT + LiberationSans + no donate. The APK output path is
 `build/app/outputs/flutter-apk/app-production-release.apk`. The recipe:
 
 - Provides Flutter as a srclib pinned to 3.44.9.
@@ -39,6 +41,15 @@ built twice with Flutter 3.44.9 from tag 1.13.0:
 
 The F-Droid build should produce the same hash when built with the pinned
 toolchain and without `--obfuscate`/`--split-debug-info`.
+
+Caveat verified on 15/08/2026 with `fdroid build --test`: two fdroid builds
+of commit `6bbcaf0` are byte-identical (unsigned tree hash
+`bfb9308f59603f13c08c3e8040b1f5ab1bea7cf14ccf2e157fe3405cddfff3da`), so the
+build is reproducible on F-Droid infra. The local reference checksum above
+will NOT byte-match an F-Droid build because the Dart AOT snapshot embeds the
+absolute checkout path (`/home/richard/RetroPod` vs F-Droid's build dir);
+`libflutter.so` and `.text` are identical, only `.rodata`/`.eh_frame`/build-id
+differ due to the embedded path.
 
 ## Steps to submit
 
