@@ -41,7 +41,9 @@ lane :build_flutter_app do |options|
   target = options[:target] || "lib/main.dart"
   no_codesign = options[:no_codesign] || false
   config_only = options[:config_only] || false
-  obfuscate = options[:obfuscate] || true
+  # Obfuscation makes builds non-reproducible, which blocks F-Droid inclusion.
+  # Keep it opt-in; reproducible builds are the default.
+  obfuscate = options.fetch(:obfuscate, false)
   commit = last_git_commit
 
   command = "flutter build #{type} --release --no-pub --suppress-analytics"

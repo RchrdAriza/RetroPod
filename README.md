@@ -166,6 +166,29 @@ by platform:
 | [**hive_ce_generator**](https://pub.dev/packages/hive_ce_generator)                           | For automatically generating Hive TypeAdapters                                      |
 | [**riverpod_lint**](https://pub.dev/packages/riverpod_lint)                                   | For using riverpod specific linting rules                                           |
 
+## Reproducible builds
+
+Android release builds are reproducible: building twice with
+
+```
+flutter build apk --release --no-pub --suppress-analytics \
+  --flavor=production --target=lib/main.dart
+```
+
+produces byte-identical APKs (verified with `scripts/verify_reproducible_build.sh`).
+Do not pass `--obfuscate` or `--split-debug-info` to the Android build, as they
+break reproducibility (the Fastfile keeps them opt-in via `obfuscate: true`).
+
+For F-Droid, a reproducible build requires matching toolchain versions, so the
+build recipe must pin the same Flutter/Dart, Gradle and JDK used for the release
+(see `pubspec.yaml` and `android/gradle/wrapper/gradle-wrapper.properties`).
+
+## Release and tags
+
+Each release must be tagged at the commit that bumps `pubspec.yaml` (e.g. tag
+`1.13.0` at version `1.13.0+26`). Tags are created by the CI workflow
+(`.github/workflows/build-and-deploy.yaml`) via `gh release create`.
+
 ## Author
 
 Original author: **[Aditya R](https://github.com/adeeteya)**
