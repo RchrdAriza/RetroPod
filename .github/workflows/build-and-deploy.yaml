@@ -54,6 +54,7 @@ jobs:
   build_web:
     if: ${{ inputs.web }}
     name: Build Web
+    needs: create_github_release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -69,6 +70,15 @@ jobs:
       - uses: bluefireteam/flutter-gh-pages@v9
         with:
           baseHref: /RetroPod/
+
+      - name: Upload Web Release to GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd build/web
+          tar -czf RetroPod-Web.tar.gz .
+          cd ../..
+          gh release upload ${{ inputs.version_number }} build/web/RetroPod-Web.tar.gz --clobber
 
   build_linux:
     if: ${{ inputs.linux }}
