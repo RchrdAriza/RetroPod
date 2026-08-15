@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:retropod/core/constants/constants.dart';
 import 'package:retropod/core/extensions/build_context_extensions.dart';
 import 'package:retropod/core/navigation/routes.dart';
 import 'package:retropod/core/services/audio_player_service.dart';
@@ -15,7 +14,6 @@ import 'package:retropod/features/settings/controller/settings_preferences_contr
 import 'package:retropod/features/settings/models/settings_preferences_model.dart';
 import 'package:retropod/features/settings/widgets/settings_list_tile.dart';
 import 'package:retropod/features/status_bar/widgets/status_bar.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 enum _SettingsDisplayItems {
   about,
@@ -36,8 +34,7 @@ enum _SettingsDisplayItems {
   showAppTutorial,
   rescanMusicFiles,
   excludeDirectories,
-  resetSettings,
-  donate;
+  resetSettings;
 
   String title(BuildContext context) {
     switch (this) {
@@ -79,8 +76,6 @@ enum _SettingsDisplayItems {
         return context.localization.resetSettingsTitle;
       case excludeDirectories:
         return context.localization.excludeDirectoriesScreenTitle;
-      case donate:
-        return context.localization.donateSettingTitle;
     }
   }
 }
@@ -189,12 +184,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
         await ref
             .read(settingsPreferencesControllerProvider.notifier)
             .resetSettings();
-        break;
-      case _SettingsDisplayItems.donate:
-        await launchUrl(
-          Uri.parse(Constants.donationLinkUrl),
-          mode: LaunchMode.externalApplication,
-        );
         break;
     }
   }
@@ -328,10 +317,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen>
       case _SettingsDisplayItems.resetSettings:
         ref.read(splitScreenControllerProvider.notifier).changeSplitScreenType =
             SplitScreenType.resetSettings;
-        break;
-      case _SettingsDisplayItems.donate:
-        ref.read(splitScreenControllerProvider.notifier).changeSplitScreenType =
-            SplitScreenType.donate;
         break;
       default:
         ref.read(splitScreenControllerProvider.notifier).changeSplitScreenType =

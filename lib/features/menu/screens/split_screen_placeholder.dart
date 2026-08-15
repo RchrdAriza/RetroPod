@@ -213,12 +213,6 @@ class _SplitScreenPlaceholderState extends ConsumerState<SplitScreenPlaceholder>
           icon: CupertinoIcons.refresh_circled,
           contentText: "",
         );
-      } else if (splitScreenType == SplitScreenType.donate) {
-        splitScreenWidget = IconPreviewWidget(
-          titleText: context.localization.donateSettingTitle,
-          icon: CupertinoIcons.money_dollar_circle,
-          contentText: context.localization.donateSettingDescription,
-        );
       } else {
         splitScreenWidget = const AnimatedAlbumArtScroller();
       }

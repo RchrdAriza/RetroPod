@@ -21,5 +21,4 @@ enum SplitScreenType {
   rescanMusicFiles,
   excludeDirectories,
   resetSettings,
-  donate,
 }
