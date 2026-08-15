@@ -1,0 +1,54 @@
+# Draft of the F-Droid build recipe for RetroPod.
+#
+# Target location in the fdroiddata repository:
+#   metadata/com.rchrdariza.retropod.yml
+#
+# Before submitting, remove all comments and run:
+#   fdroid readmeta
+#
+# The Flutter toolchain is provided as a srclib pinned to the same version
+# used by GitHub Actions (`FLUTTER_VERSION` in `.github/workflows/*.yaml`
+# plus the `flutter:` constraint in `pubspec.yaml`), which keeps builds
+# reproducible.
+#
+# Only build the Android package. Flutter assembles the production flavor.
+
+Categories:
+  - Multimedia
+  - Music
+
+License: MIT
+AuthorName: Richard Ariza
+AuthorWebSite: https://rchrdariza.dev
+SourceCode: https://github.com/RchrdAriza/RetroPod
+IssueTracker: https://github.com/RchrdAriza/RetroPod/issues
+Changelog: https://github.com/RchrdAriza/RetroPod/releases
+
+AutoName: RetroPod
+RepoType: git
+Repo: https://github.com/RchrdAriza/RetroPod.git
+
+Builds:
+  - versionName: 1.13.0
+    versionCode: 26
+    commit: 197443456075d48130fd45060c96d2ed52807a02
+    output: build/app/outputs/flutter-apk/app-production-release.apk
+    srclibs:
+      - flutter@3.44.9
+    ndk: 28.2.13676358
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter gen-l10n
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release --no-pub --flavor=production --target=lib/main.dart
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^\d+\.\d+\.\d+$
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.13.0
+CurrentVersionCode: 26
