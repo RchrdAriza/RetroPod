@@ -3,7 +3,7 @@
 > Creado el 15/08/2026 antes de dormir. Continuado y resuelto el mismo día:
 > el build de test se ejecutó a fondo y la receta quedó validada.
 
-## Resultado final ✅
+## Resultado final
 
 - **`fdroid build --test --verbose com.rchrdariza.retropod` → `1 build succeeded`**,
   ejecutado dos veces sobre el mismo directorio de build en
@@ -37,7 +37,7 @@
     byte-a-byte con un build local solo es posible si ambos usan el mismo
     directorio.
 
-## Qué está hecho ✅
+## Qué está hecho
 
 - Receta validada con `fdroid readmeta` (exit 0):
   `fdroid/com.rchrdariza.retropod.yml`.

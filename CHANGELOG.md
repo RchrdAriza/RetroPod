@@ -1,4 +1,4 @@
-[✅ prepared for F-Droid: reproducible builds, MIT license, free fonts](https://github.com/RchrdAriza/RetroPod/releases/tag/1.14.0)
+[prepared for F-Droid: reproducible builds, MIT license, free fonts](https://github.com/RchrdAriza/RetroPod/releases/tag/1.14.0)
 
 [replaced proprietary Helvetica font with Liberation Sans (SIL OFL) and documented asset licenses](https://github.com/RchrdAriza/RetroPod)
 
