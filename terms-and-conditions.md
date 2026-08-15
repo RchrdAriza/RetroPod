@@ -1,27 +1,45 @@
 **Terms & Conditions**
 
-By downloading or using the app, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the app. You’re not allowed to copy or modify the app, any part of the app, or our trademarks in any way. You’re not allowed to attempt to extract the source code of the app, and you also shouldn’t try to translate the app into other languages or make derivative versions. The app itself, and all the trademarks, copyright, database rights, and other intellectual property rights related to it, still belong to Aditya.
+These terms and conditions govern your use of the RetroPod app, available in this
+project's public repositories and app stores. By downloading or using the app,
+you agree to be bound by these terms.
 
-Aditya is committed to ensuring that the app is as useful and efficient as possible. For that reason, we reserve the right to make changes to the app or to charge for its services, at any time and for any reason. We will never charge you for the app or its services without making it very clear to you exactly what you’re paying for.
+1. **Free and open source software.** RetroPod is free, open source software
+   licensed under the MIT License. You are free to use, copy, modify, merge,
+   publish, distribute, sublicense, and sell copies of the software, subject to
+   the terms of the MIT License. The original code of ClassiPod (copyright
+   (c) 2025 Aditya R) remains licensed under the BSD-4-Clause License. See the
+   LICENSE, LICENSE-CLASSIPOD and NOTICE files in the source repository for
+   details.
 
-The RetroPod app stores and processes personal data that you have provided to us, to provide my Service. It’s your responsibility to keep your phone and access to the app secure. We therefore recommend that you do not jailbreak or root your phone, which is the process of removing software restrictions and limitations imposed by the official operating system of your device. It could make your phone vulnerable to malware/viruses/malicious programs, compromise your phone’s security features and it could mean that the RetroPod app won’t work properly or at all.
+2. **No promises of availability.** The app is provided without warranty of any
+   kind, express or implied. We do not promise that the app will always work or
+   that updates will always be released. You use the software at your own risk,
+   in accordance with the MIT License, which disclaims all warranties and limits
+   liability.
 
-You should be aware that there are certain things that Aditya will not take responsibility for. Certain functions of the app will require the app to have an active internet connection. The connection can be Wi-Fi or provided by your mobile network provider, but Aditya cannot take responsibility for the app not working at full functionality if you don’t have access to Wi-Fi, and you don’t have any of your data allowance left.
+3. **Updates and builds.** You are free to build, modify and redistribute the app.
+   Updates, when published, apply the usual terms of the MIT License. We may stop
+   providing or updating the app at any time, but your rights under the MIT
+   License over the source code are not affected.
 
-If you’re using the app outside of an area with Wi-Fi, you should remember that the terms of the agreement with your mobile network provider will still apply. As a result, you may be charged by your mobile provider for the cost of data for the duration of the connection while accessing the app, or other third-party charges. In using the app, you’re accepting responsibility for any such charges, including roaming data charges if you use the app outside of your home territory (i.e. region or country) without turning off data roaming. If you are not the bill payer for the device on which you’re using the app, please be aware that we assume that you have received permission from the bill payer for using the app.
+4. **Your data.** RetroPod is an offline media player. It does not collect, store,
+   transmit, or share personal data, and it does not require an internet
+   connection for its core functionality. Your music library and preferences are
+   processed locally on your device.
 
-Along the same lines, Aditya cannot always take responsibility for the way you use the app i.e. You need to make sure that your device stays charged – if it runs out of battery and you can’t turn it on to avail the Service, Aditya cannot accept responsibility.
+5. **Your responsibility.** You are responsible for how you use the app and for
+   keeping your device secure. This includes the content of your music library
+   and any other media you play with the app.
 
-With respect to Aditya’s responsibility for your use of the app, when you’re using the app, it’s important to bear in mind that although we endeavor to ensure that it is updated and correct at all times, we do rely on third parties to provide information to us so that we can make it available to you. Aditya accepts no liability for any loss, direct or indirect, you experience as a result of relying wholly on this functionality of the app.
+**Changes to These Terms and Conditions**
 
-At some point, we may wish to update the app. The app is currently available on Android & iOS – the requirements for the both systems(and for any additional systems we decide to extend the availability of the app to) may change, and you’ll need to download the updates if you want to keep using the app. Aditya does not promise that it will always update the app so that it is relevant to you and/or works with the Android & iOS version that you have installed on your device. However, you promise to always accept updates to the application when offered to you, We may also wish to stop providing the app, and may terminate use of it at any time without giving notice of termination to you. Unless we tell you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must stop using the app, and (if needed) delete it from your device.
+We may update these terms from time to time. You are advised to review this page
+periodically for any changes. Changes will be posted on this page.
 
-**Changes to This Terms and Conditions**
-
-I may update our Terms and Conditions from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Terms and Conditions on this page.
-
-These terms and conditions are effective as of 2025-02-14
+These terms and conditions are effective as of 2026-08-15.
 
 **Contact Us**
 
-If you have any questions or suggestions about my Terms and Conditions, do not hesitate to contact me at lightningbolt340@gmail.com.
+If you have any questions or suggestions about these Terms and Conditions, do not
+hesitate to contact us at rchrdalv@gmail.com.
