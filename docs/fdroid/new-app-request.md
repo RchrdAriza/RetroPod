@@ -3,6 +3,10 @@
 Ready-to-paste text for https://gitlab.com/fdroid/fdroiddata/-/issues
 (choose "New App Request" template if available).
 
+Submitted on 2026-08-15 as fdroiddata issue
+https://gitlab.com/fdroid/fdroiddata/-/work_items/4034 (label "New App"
+intended; the API did not persist the label on the work item).
+
 ---
 
 **Application ID:** com.rchrdariza.retropod
