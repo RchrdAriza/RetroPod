@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -307,4 +308,109 @@ void main() {
       ),
     );
   });
+
+  test('Sidecar lrc file next to directory audio takes precedence', () {
+    final Directory tempDirectory = Directory.systemTemp.createTempSync(
+      'retropod_sidecar_dir_test',
+    );
+    addTearDown(() => tempDirectory.deleteSync(recursive: true));
+
+    const String lrcContent = "[00:00.00] Sidecar lyrics";
+    File("${tempDirectory.path}/Faded.lrc").writeAsStringSync(lrcContent);
+    File(
+      "${Directory.current.path}/test/test_files/mp3/Faded.mp3",
+    ).copySync("${tempDirectory.path}/Faded.mp3");
+
+    final metadataReaderRepository = providerContainer.read(
+      metadataReaderRepositoryProvider,
+    );
+    final metadataList = metadataReaderRepository.extractMetadataFromDirectory(
+      tempDirectory.path,
+    );
+    expect(metadataList, isNotEmpty);
+    expect(metadataList.first.lyrics, lrcContent);
+  });
+
+  test('Sidecar lrc file wins over embedded lyrics for picked files', () {
+    final Directory tempDirectory = Directory.systemTemp.createTempSync(
+      'retropod_sidecar_files_test',
+    );
+    addTearDown(() => tempDirectory.deleteSync(recursive: true));
+
+    const String lrcContent = "[00:00.00] Picked sidecar lyrics";
+    File("${tempDirectory.path}/Faded.lrc").writeAsStringSync(lrcContent);
+    File(
+      "${Directory.current.path}/test/test_files/mp3/Faded.mp3",
+    ).copySync("${tempDirectory.path}/Faded.mp3");
+
+    final metadataReaderRepository = providerContainer.read(
+      metadataReaderRepositoryProvider,
+    );
+    final metadataList = metadataReaderRepository.extractMetadataFromFiles([
+      "${tempDirectory.path}/Faded.mp3",
+    ]);
+    expect(metadataList, isNotEmpty);
+    expect(metadataList.first.lyrics, lrcContent);
+  });
+
+  test('Sidecar lrc in UTF-8 with BOM is decoded', () {
+    final Directory tempDirectory = Directory.systemTemp.createTempSync(
+      'retropod_sidecar_utf8_test',
+    );
+    addTearDown(() => tempDirectory.deleteSync(recursive: true));
+
+    final Uint8List bomContent = Uint8List.fromList([
+      0xEF,
+      0xBB,
+      0xBF,
+      ...utf8.encode("[00:00.00] UTF-8 BOM lyrics"),
+    ]);
+    File("${tempDirectory.path}/Faded.lrc").writeAsBytesSync(bomContent);
+    File(
+      "${Directory.current.path}/test/test_files/mp3/Faded.mp3",
+    ).copySync("${tempDirectory.path}/Faded.mp3");
+
+    final metadataReaderRepository = providerContainer.read(
+      metadataReaderRepositoryProvider,
+    );
+    final metadataList = metadataReaderRepository.extractMetadataFromFiles([
+      "${tempDirectory.path}/Faded.mp3",
+    ]);
+    expect(metadataList.first.lyrics, "[00:00.00] UTF-8 BOM lyrics");
+  });
+
+  test('Sidecar lrc in UTF-16 LE with BOM is decoded', () {
+    final Directory tempDirectory = Directory.systemTemp.createTempSync(
+      'retropod_sidecar_utf16le_test',
+    );
+    addTearDown(() => tempDirectory.deleteSync(recursive: true));
+
+    final Uint8List utf16LeContent = Uint8List.fromList([
+      0xFF,
+      0xFE,
+      ..._utf16LeBytes("[00:00.00] UTF-16 LE lyrics"),
+    ]);
+    File("${tempDirectory.path}/Faded.lrc").writeAsBytesSync(utf16LeContent);
+    File(
+      "${Directory.current.path}/test/test_files/mp3/Faded.mp3",
+    ).copySync("${tempDirectory.path}/Faded.mp3");
+
+    final metadataReaderRepository = providerContainer.read(
+      metadataReaderRepositoryProvider,
+    );
+    final metadataList = metadataReaderRepository.extractMetadataFromFiles([
+      "${tempDirectory.path}/Faded.mp3",
+    ]);
+    expect(metadataList.first.lyrics, "[00:00.00] UTF-16 LE lyrics");
+  });
+}
+
+List<int> _utf16LeBytes(String value) {
+  final List<int> bytes = [];
+  for (final int codeUnit in value.codeUnits) {
+    bytes
+      ..add(codeUnit & 0xFF)
+      ..add((codeUnit >> 8) & 0xFF);
+  }
+  return bytes;
 }

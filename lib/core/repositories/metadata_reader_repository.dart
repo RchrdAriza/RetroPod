@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:audio_metadata_reader/audio_metadata_reader.dart';
@@ -65,6 +66,65 @@ class MetadataReaderRepository {
         title: fileName.substring(0, fileName.length - '.aac'.length),
       );
     }
+  }
+
+  /// Reads sidecar `.lrc` lyrics stored next to [audioPath].
+  ///
+  /// Returns `null` when no sibling `.<base name>.lrc` file exists.
+  String? _readSidecarLyrics(String audioPath) {
+    final String lowercasePath = audioPath.toLowerCase();
+    bool hasSupportedExtension = false;
+    for (final String extension in supportedAudioFileExtensions) {
+      if (lowercasePath.endsWith(extension)) {
+        hasSupportedExtension = true;
+        break;
+      }
+    }
+    if (!hasSupportedExtension) {
+      return null;
+    }
+
+    final int lastDotIndex = audioPath.lastIndexOf('.');
+    if (lastDotIndex == -1) {
+      return null;
+    }
+
+    final String lrcPath = '${audioPath.substring(0, lastDotIndex)}.lrc';
+    final File lrcFile = File(lrcPath);
+    if (!lrcFile.existsSync()) {
+      return null;
+    }
+
+    final Uint8List bytes = lrcFile.readAsBytesSync();
+    return _decodeSidecarLyrics(bytes);
+  }
+
+  /// Decodes sidecar `.lrc` bytes tolerating common lyric encodings.
+  static String _decodeSidecarLyrics(Uint8List bytes) {
+    if (bytes.length >= 2 && bytes[0] == 0xFF && bytes[1] == 0xFE) {
+      return _decodeUtf16(bytes, littleEndian: true);
+    }
+    if (bytes.length >= 2 && bytes[0] == 0xFE && bytes[1] == 0xFF) {
+      return _decodeUtf16(bytes, littleEndian: false);
+    }
+
+    try {
+      return utf8.decode(bytes).replaceFirst(RegExp(r'^\uFEFF'), '');
+    } on FormatException {
+      return latin1.decode(bytes);
+    }
+  }
+
+  /// Decodes a UTF-16 ([littleEndian]) payload, skipping its byte order mark.
+  static String _decodeUtf16(Uint8List bytes, {required bool littleEndian}) {
+    final StringBuffer buffer = StringBuffer();
+    for (int i = 2; i + 1 < bytes.length; i += 2) {
+      final int codeUnit = littleEndian
+          ? (bytes[i] | (bytes[i + 1] << 8))
+          : ((bytes[i] << 8) | bytes[i + 1]);
+      buffer.writeCharCode(codeUnit & 0xFFFF);
+    }
+    return buffer.toString();
   }
 
   bool _isAdtsAac(File file) {
@@ -188,6 +248,7 @@ class MetadataReaderRepository {
               audioMetadata,
               thumbnailPath,
               metadataList.length,
+              lyricsOverride: _readSidecarLyrics(path),
             ),
           );
         }
@@ -228,6 +289,7 @@ class MetadataReaderRepository {
               audioMetadata,
               thumbnailPath,
               metadataList.length,
+              lyricsOverride: _readSidecarLyrics(path),
             ),
           );
         }

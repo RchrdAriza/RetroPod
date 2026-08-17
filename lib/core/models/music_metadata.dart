@@ -119,8 +119,9 @@ class MusicMetadata extends HiveObject {
   factory MusicMetadata.fromAudioMetadata(
     AudioMetadata audioMetadata,
     String? thumbnailPath,
-    int originalSongIndex,
-  ) {
+    int originalSongIndex, {
+    String? lyricsOverride,
+  }) {
     final artist =
         normalizeMetadataString(audioMetadata.artist) ?? "Unknown Artist";
     final List<String> trackArtistNames = splitArtistNames(artist);
@@ -144,7 +145,7 @@ class MusicMetadata extends HiveObject {
       filePath: audioMetadata.file.path,
       thumbnailPath: thumbnailPath,
       originalSongIndex: originalSongIndex,
-      lyrics: audioMetadata.lyrics,
+      lyrics: lyricsOverride ?? audioMetadata.lyrics,
     );
   }
 
