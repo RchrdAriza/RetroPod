@@ -255,9 +255,9 @@ class MusicMetadata extends HiveObject {
           duration: trackDuration != null
               ? Duration(milliseconds: trackDuration!)
               : null,
-          artUri: thumbnailPath == null
-              ? Uri.file(filePath!)
-              : Uri.file(thumbnailPath!),
+          artUri: thumbnailPath != null
+              ? Uri.file(thumbnailPath!)
+              : (filePath != null ? Uri.file(filePath!) : null),
           rating: Rating.newStarRating(RatingStyle.range5stars, rating),
           extras: {"loadThumbnailUri": true},
         ),
@@ -312,14 +312,13 @@ class MusicMetadata extends HiveObject {
   }
 
   String get getMainArtistName {
-    return trackArtistNames?[0] ?? "Unknown Artist";
+    return (trackArtistNames == null || trackArtistNames!.isEmpty)
+        ? "Unknown Artist"
+        : trackArtistNames!.first;
   }
 
   String? get getTrackArtistNames {
-    return trackArtistNames?.toString().substring(
-      1,
-      trackArtistNames.toString().length - 1,
-    );
+    return trackArtistNames?.join(', ');
   }
 
   String get getMainGenre {

@@ -127,8 +127,8 @@ jobs:
         run: |
           REL_VER=$(grep "^version" pubspec.yaml | cut -d' ' -f2)
           for PKG in AppImage deb rpm; do
-            mv "dist/${REL_VER}/classipod-${REL_VER}-linux.${PKG}" "Classipod-Linux-${PKG}.${PKG}"
-            gh release upload ${{ inputs.version_number }} "Classipod-Linux-${PKG}.${PKG}" --clobber
+            mv "dist/${REL_VER}/retropod-${REL_VER}-linux.${PKG}" "RetroPod-Linux-${PKG}.${PKG}"
+            gh release upload ${{ inputs.version_number }} "RetroPod-Linux-${PKG}.${PKG}" --clobber
           done
 
   build_windows:
@@ -165,7 +165,7 @@ jobs:
       - name: Upload Windows Release Artifact to GitHub Release
         shell: cmd
         run: |
-          gh release upload ${{ inputs.version_number }} "%GITHUB_WORKSPACE%\Classipod-Windows.exe
+          gh release upload ${{ inputs.version_number }} "%GITHUB_WORKSPACE%\RetroPod-Windows.exe" --clobber
         env:
           GH_TOKEN: ${{ github.token }}
 
