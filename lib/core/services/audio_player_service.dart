@@ -99,13 +99,13 @@ class AudioPlayerServiceNotifier extends AsyncNotifier<void> {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
       final List<AudioSource> songSourcePlaylist = [];
-      int i = 0;
       try {
         for (final musicMetadata in musicMetadataList) {
           songSourcePlaylist.add(musicMetadata.toAudioSource());
-          i = i + 1;
         }
-      } catch (_) {}
+      } catch (e) {
+        debugPrint('Error building audio source playlist: $e');
+      }
 
       await ref
           .read(audioPlayerProvider)
